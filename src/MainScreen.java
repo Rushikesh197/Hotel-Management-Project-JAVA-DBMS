@@ -34,90 +34,87 @@ public class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        Label_Logo_MS = new javax.swing.JLabel();
+        Button_RoomDets_MS = new javax.swing.JButton();
+        Button_CustEntry_MS = new javax.swing.JButton();
+        Label_MainScreen_MS = new javax.swing.JLabel();
+        Button_Back_MS = new javax.swing.JButton();
 
         jLabel7.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         jLabel7.setText("ADMIN LOGIN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
-        jLabel1.setText(" GRAND HYATT");
+        Label_Logo_MS.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
+        Label_Logo_MS.setText(" GRAND HYATT");
+        getContentPane().add(Label_Logo_MS);
+        Label_Logo_MS.setBounds(277, 6, 531, 123);
 
-        jButton1.setText("ROOM DETAILS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Button_RoomDets_MS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_RoomDets_MS.setText("ROOM DETAILS");
+        Button_RoomDets_MS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Button_RoomDets_MSActionPerformed(evt);
             }
         });
+        getContentPane().add(Button_RoomDets_MS);
+        Button_RoomDets_MS.setBounds(277, 237, 138, 24);
 
-        jButton2.setText("CUSTOMER ENTRY");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Button_CustEntry_MS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_CustEntry_MS.setText("CUSTOMER ENTRY");
+        Button_CustEntry_MS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Button_CustEntry_MSActionPerformed(evt);
             }
         });
+        getContentPane().add(Button_CustEntry_MS);
+        Button_CustEntry_MS.setBounds(647, 237, 161, 24);
 
-        jLabel8.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
-        jLabel8.setText("MAIN SCREEN");
+        Label_MainScreen_MS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_MainScreen_MS.setText("MAIN SCREEN");
+        getContentPane().add(Label_MainScreen_MS);
+        Label_MainScreen_MS.setBounds(474, 147, 129, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(254, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(189, 189, 189))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(396, 396, 396))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(243, Short.MAX_VALUE))
-        );
+        Button_Back_MS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Back_MS.setText("BACK");
+        Button_Back_MS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Back_MSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Button_Back_MS);
+        Button_Back_MS.setBounds(499, 303, 72, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Button_RoomDets_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RoomDets_MSActionPerformed
 
          RoomDetails rd = new RoomDetails();
             rd.setVisible(true);
             rd.setLocationRelativeTo(null);
             this.dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Button_RoomDets_MSActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Button_CustEntry_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CustEntry_MSActionPerformed
 
-        FinalCustomer fc = new FinalCustomer();
-            fc.setVisible(true);
-            fc.setLocationRelativeTo(null);
+        CustomerEntry ce = new CustomerEntry();
+            ce.setVisible(true);
+            ce.setLocationRelativeTo(null);
             this.dispose();
         
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Button_CustEntry_MSActionPerformed
+
+    private void Button_Back_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_MSActionPerformed
+        // TODO add your handling code here:
+        EmployeeLogin el = new EmployeeLogin();
+            el.setVisible(true);
+            el.setLocationRelativeTo(null);
+            this.dispose();
+    }//GEN-LAST:event_Button_Back_MSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,10 +152,11 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton Button_Back_MS;
+    private javax.swing.JButton Button_CustEntry_MS;
+    private javax.swing.JButton Button_RoomDets_MS;
+    private javax.swing.JLabel Label_Logo_MS;
+    private javax.swing.JLabel Label_MainScreen_MS;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

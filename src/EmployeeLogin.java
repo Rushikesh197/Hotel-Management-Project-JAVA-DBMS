@@ -34,116 +34,105 @@ public class EmployeeLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        Label_Logo_EL = new javax.swing.JLabel();
+        Label_EmpID_EL = new javax.swing.JLabel();
+        Button_Login_EL = new javax.swing.JButton();
+        TextField_EmpID_EL = new javax.swing.JTextField();
+        Label_Pass_EL = new javax.swing.JLabel();
+        Label_Emp_Login_EL = new javax.swing.JLabel();
+        TextField_Pass_EL = new javax.swing.JPasswordField();
+        Button_Back_EL = new javax.swing.JButton();
 
         jLabel6.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         jLabel6.setText("NEW CUSTOMER REGISTRATION");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
-        jLabel1.setText(" GRAND HYATT");
+        Label_Logo_EL.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
+        Label_Logo_EL.setText(" GRAND HYATT");
+        getContentPane().add(Label_Logo_EL);
+        Label_Logo_EL.setBounds(272, 6, 531, 123);
 
-        jLabel9.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jLabel9.setText("EMPLOYEE ID");
+        Label_EmpID_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_EmpID_EL.setText("EMPLOYEE ID");
+        getContentPane().add(Label_EmpID_EL);
+        Label_EmpID_EL.setBounds(397, 228, 98, 18);
 
-        jButton1.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jButton1.setText("LOGIN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Button_Login_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Login_EL.setText("LOGIN");
+        Button_Login_EL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Button_Login_ELActionPerformed(evt);
             }
         });
+        getContentPane().add(Button_Login_EL);
+        Button_Login_EL.setBounds(615, 400, 76, 24);
 
-        jTextField3.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        TextField_EmpID_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        TextField_EmpID_EL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                TextField_EmpID_ELActionPerformed(evt);
             }
         });
+        getContentPane().add(TextField_EmpID_EL);
+        TextField_EmpID_EL.setBounds(397, 252, 294, 24);
 
-        jLabel10.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jLabel10.setText("PASSWORD");
+        Label_Pass_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_Pass_EL.setText("PASSWORD");
+        getContentPane().add(Label_Pass_EL);
+        Label_Pass_EL.setBounds(397, 315, 79, 18);
 
-        jLabel7.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
-        jLabel7.setText("EMPLOYEE LOGIN");
+        Label_Emp_Login_EL.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_Emp_Login_EL.setText("EMPLOYEE LOGIN");
+        getContentPane().add(Label_Emp_Login_EL);
+        Label_Emp_Login_EL.setBounds(458, 157, 166, 23);
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        TextField_Pass_EL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                TextField_Pass_ELActionPerformed(evt);
             }
         });
+        getContentPane().add(TextField_Pass_EL);
+        TextField_Pass_EL.setBounds(397, 339, 294, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 298, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(274, 274, 274))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jLabel7))
-                            .addComponent(jPasswordField1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(489, 489, 489)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jButton1)
-                .addContainerGap(244, Short.MAX_VALUE))
-        );
+        Button_Back_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Back_EL.setText("BACK");
+        Button_Back_EL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Back_ELActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Button_Back_EL);
+        Button_Back_EL.setBounds(397, 400, 72, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Button_Login_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_ELActionPerformed
 
         MainScreen ms = new MainScreen();
             ms.setVisible(true);
             ms.setLocationRelativeTo(null);
             this.dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Button_Login_ELActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void TextField_EmpID_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_EmpID_ELActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_TextField_EmpID_ELActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void TextField_Pass_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Pass_ELActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_TextField_Pass_ELActionPerformed
+
+    private void Button_Back_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_ELActionPerformed
+        // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+            hs.setVisible(true);
+            hs.setLocationRelativeTo(null);
+            this.dispose();
+    }//GEN-LAST:event_Button_Back_ELActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,13 +170,14 @@ public class EmployeeLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JButton Button_Back_EL;
+    private javax.swing.JButton Button_Login_EL;
+    private javax.swing.JLabel Label_EmpID_EL;
+    private javax.swing.JLabel Label_Emp_Login_EL;
+    private javax.swing.JLabel Label_Logo_EL;
+    private javax.swing.JLabel Label_Pass_EL;
+    private javax.swing.JTextField TextField_EmpID_EL;
+    private javax.swing.JPasswordField TextField_Pass_EL;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

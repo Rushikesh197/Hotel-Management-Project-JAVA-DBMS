@@ -25,86 +25,77 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        Button_Login_Admin = new javax.swing.JButton();
+        Label_Pass_Admin = new javax.swing.JLabel();
+        Label_Logo_Admin = new javax.swing.JLabel();
+        Label_AdminLogin_Admin = new javax.swing.JLabel();
+        PassField_Admin = new javax.swing.JPasswordField();
+        Button_Back_Admin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jButton1.setText("LOGIN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Button_Login_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Login_Admin.setText("LOGIN");
+        Button_Login_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Button_Login_AdminActionPerformed(evt);
             }
         });
+        getContentPane().add(Button_Login_Admin);
+        Button_Login_Admin.setBounds(541, 297, 76, 24);
 
-        jLabel10.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jLabel10.setText("PASSWORD");
+        Label_Pass_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_Pass_Admin.setText("PASSWORD");
+        getContentPane().add(Label_Pass_Admin);
+        Label_Pass_Admin.setBounds(368, 208, 79, 18);
 
-        jLabel1.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
-        jLabel1.setText(" GRAND HYATT");
+        Label_Logo_Admin.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
+        Label_Logo_Admin.setText(" GRAND HYATT");
+        getContentPane().add(Label_Logo_Admin);
+        Label_Logo_Admin.setBounds(244, 6, 531, 123);
 
-        jLabel7.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
-        jLabel7.setText("ADMIN LOGIN");
+        Label_AdminLogin_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_AdminLogin_Admin.setText("ADMIN LOGIN");
+        getContentPane().add(Label_AdminLogin_Admin);
+        Label_AdminLogin_Admin.setBounds(434, 141, 129, 23);
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        PassField_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                PassField_AdminActionPerformed(evt);
             }
         });
+        getContentPane().add(PassField_Admin);
+        PassField_Admin.setBounds(368, 244, 249, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 240, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(274, 274, 274))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(446, 446, 446)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(92, 92, 92)
-                                .addComponent(jButton1))
-                            .addComponent(jPasswordField1))))
-                .addGap(383, 383, 383))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jButton1)
-                .addContainerGap(284, Short.MAX_VALUE))
-        );
+        Button_Back_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Back_Admin.setText("BACK");
+        Button_Back_Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Back_AdminActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Button_Back_Admin);
+        Button_Back_Admin.setBounds(368, 297, 72, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Button_Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_AdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Button_Login_AdminActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void PassField_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassField_AdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_PassField_AdminActionPerformed
+
+    private void Button_Back_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_AdminActionPerformed
+        // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+            hs.setVisible(true);
+            hs.setLocationRelativeTo(null);
+            this.dispose();
+    }//GEN-LAST:event_Button_Back_AdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,10 +133,11 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton Button_Back_Admin;
+    private javax.swing.JButton Button_Login_Admin;
+    private javax.swing.JLabel Label_AdminLogin_Admin;
+    private javax.swing.JLabel Label_Logo_Admin;
+    private javax.swing.JLabel Label_Pass_Admin;
+    private javax.swing.JPasswordField PassField_Admin;
     // End of variables declaration//GEN-END:variables
 }

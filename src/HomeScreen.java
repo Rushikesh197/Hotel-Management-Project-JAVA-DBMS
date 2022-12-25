@@ -37,94 +37,70 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jPopupMenu2 = new javax.swing.JPopupMenu();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Label_Logo_HS = new javax.swing.JLabel();
+        Button_Emp_Login_HS = new javax.swing.JButton();
+        Button_Admin_Login_HS = new javax.swing.JButton();
+        Label_Emp_Login_HS = new javax.swing.JLabel();
+        Label_Admin_Login_HS = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
-        jLabel1.setText(" GRAND HYATT");
+        Label_Logo_HS.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
+        Label_Logo_HS.setText(" GRAND HYATT");
+        getContentPane().add(Label_Logo_HS);
+        Label_Logo_HS.setBounds(230, 10, 531, 123);
 
-        jButton2.setText("LOGIN");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Button_Emp_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Emp_Login_HS.setText("LOGIN");
+        Button_Emp_Login_HS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Button_Emp_Login_HSActionPerformed(evt);
             }
         });
+        getContentPane().add(Button_Emp_Login_HS);
+        Button_Emp_Login_HS.setBounds(273, 291, 76, 24);
 
-        jButton3.setText("LOGIN");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Button_Admin_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Admin_Login_HS.setText("LOGIN");
+        Button_Admin_Login_HS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                Button_Admin_Login_HSActionPerformed(evt);
             }
         });
+        getContentPane().add(Button_Admin_Login_HS);
+        Button_Admin_Login_HS.setBounds(654, 291, 76, 24);
 
-        jLabel3.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
-        jLabel3.setText("EMPLOYEE LOGIN");
+        Label_Emp_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_Emp_Login_HS.setText("EMPLOYEE LOGIN");
+        getContentPane().add(Label_Emp_Login_HS);
+        Label_Emp_Login_HS.setBounds(240, 250, 166, 23);
 
-        jLabel4.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
-        jLabel4.setText("ADMIN LOGIN");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(jButton2)
-                        .addGap(322, 322, 322)
-                        .addComponent(jButton3)))
-                .addContainerGap(314, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel1)
-                .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(400, Short.MAX_VALUE))
-        );
+        Label_Admin_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_Admin_Login_HS.setText("ADMIN LOGIN");
+        getContentPane().add(Label_Admin_Login_HS);
+        Label_Admin_Login_HS.setBounds(633, 256, 129, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void Button_Admin_Login_HSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Admin_Login_HSActionPerformed
 
         Admin ad = new Admin();
             ad.setVisible(true);
             ad.setLocationRelativeTo(null);
             this.dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_Button_Admin_Login_HSActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Button_Emp_Login_HSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Emp_Login_HSActionPerformed
 
         EmployeeLogin el = new EmployeeLogin();
             el.setVisible(true);
             el.setLocationRelativeTo(null);
             this.dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Button_Emp_Login_HSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,11 +138,11 @@ public class HomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton Button_Admin_Login_HS;
+    private javax.swing.JButton Button_Emp_Login_HS;
+    private javax.swing.JLabel Label_Admin_Login_HS;
+    private javax.swing.JLabel Label_Emp_Login_HS;
+    private javax.swing.JLabel Label_Logo_HS;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     // End of variables declaration//GEN-END:variables
