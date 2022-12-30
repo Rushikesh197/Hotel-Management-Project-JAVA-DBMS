@@ -475,24 +475,7 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String Emp_Pass,Emp_Name,Emp_DOB,Emp_DOJ,Emp_Address,Emp_Gender,
-        int Emp_Salary,Emp_ID;
-        double Emp_Aadhar;
-                
-        User_name=this.TextField_Fname_NCR.getText();
         
-        password=this.password.getText();
-        
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
-            ps = conn.prepareStatement("insert into Employee(Emp_ID,Emp_Name,Emp_DOB,Emp_DOJ,Emp_Address,Emp_Aadhar,_Emp_Gender,Emp_Pass,Emp_Salary) values(?,?,?,?,?,?,?,?,?)");
-            ps.setString(1, Emp_ID);
-            ps.setString(2 ,Emp_Name);
-             ps.setString(2 ,Emp_DOB);
-              ps.setString(2 ,password);
-               ps.setString(2 ,password);
-                ps.setString(2 ,password);
-                 ps.setString(2 ,password);
-            ps.executeUpdate();
             
     }//GEN-LAST:event_jButton3ActionPerformed
 
