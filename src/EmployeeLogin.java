@@ -34,6 +34,8 @@ public class EmployeeLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         Label_Logo_EL = new javax.swing.JLabel();
         Label_EmpID_EL = new javax.swing.JLabel();
         Button_Login_EL = new javax.swing.JButton();
@@ -49,15 +51,13 @@ public class EmployeeLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel1.setBackground(java.awt.Color.darkGray);
+
         Label_Logo_EL.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_EL.setText(" GRAND HYATT");
-        getContentPane().add(Label_Logo_EL);
-        Label_Logo_EL.setBounds(272, 6, 531, 123);
 
         Label_EmpID_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_EmpID_EL.setText("EMPLOYEE ID");
-        getContentPane().add(Label_EmpID_EL);
-        Label_EmpID_EL.setBounds(397, 228, 98, 18);
 
         Button_Login_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Login_EL.setText("LOGIN");
@@ -66,8 +66,6 @@ public class EmployeeLogin extends javax.swing.JFrame {
                 Button_Login_ELActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Login_EL);
-        Button_Login_EL.setBounds(615, 400, 76, 24);
 
         TextField_EmpID_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         TextField_EmpID_EL.addActionListener(new java.awt.event.ActionListener() {
@@ -75,26 +73,18 @@ public class EmployeeLogin extends javax.swing.JFrame {
                 TextField_EmpID_ELActionPerformed(evt);
             }
         });
-        getContentPane().add(TextField_EmpID_EL);
-        TextField_EmpID_EL.setBounds(397, 252, 294, 24);
 
         Label_Pass_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Pass_EL.setText("PASSWORD");
-        getContentPane().add(Label_Pass_EL);
-        Label_Pass_EL.setBounds(397, 315, 79, 18);
 
         Label_Emp_Login_EL.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_Emp_Login_EL.setText("EMPLOYEE LOGIN");
-        getContentPane().add(Label_Emp_Login_EL);
-        Label_Emp_Login_EL.setBounds(458, 157, 166, 23);
 
         TextField_Pass_EL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextField_Pass_ELActionPerformed(evt);
             }
         });
-        getContentPane().add(TextField_Pass_EL);
-        TextField_Pass_EL.setBounds(397, 339, 294, 23);
 
         Button_Back_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Back_EL.setText("BACK");
@@ -103,8 +93,59 @@ public class EmployeeLogin extends javax.swing.JFrame {
                 Button_Back_ELActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Back_EL);
-        Button_Back_EL.setBounds(397, 400, 72, 24);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 205, Short.MAX_VALUE)
+                .addComponent(Label_Logo_EL, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(172, 172, 172))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextField_EmpID_EL, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Label_EmpID_EL)
+                            .addComponent(Label_Pass_EL)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Button_Back_EL)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Button_Login_EL))
+                                .addComponent(TextField_Pass_EL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(362, 362, 362)
+                        .addComponent(Label_Emp_Login_EL)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(Label_Logo_EL)
+                .addGap(18, 18, 18)
+                .addComponent(Label_Emp_Login_EL)
+                .addGap(48, 48, 48)
+                .addComponent(Label_EmpID_EL)
+                .addGap(18, 18, 18)
+                .addComponent(TextField_EmpID_EL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(Label_Pass_EL)
+                .addGap(18, 18, 18)
+                .addComponent(TextField_Pass_EL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_Back_EL)
+                    .addComponent(Button_Login_EL)))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 30, 900, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,5 +220,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
     private javax.swing.JTextField TextField_EmpID_EL;
     private javax.swing.JPasswordField TextField_Pass_EL;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

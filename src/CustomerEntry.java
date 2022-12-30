@@ -33,6 +33,8 @@ public class CustomerEntry extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         Label_Logo_CE = new javax.swing.JLabel();
         TextField_Ph_Pri_CE = new javax.swing.JTextField();
         Label_Ph_Pri_CE = new javax.swing.JLabel();
@@ -43,10 +45,10 @@ public class CustomerEntry extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel1.setBackground(java.awt.Color.darkGray);
+
         Label_Logo_CE.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_CE.setText(" GRAND HYATT");
-        getContentPane().add(Label_Logo_CE);
-        Label_Logo_CE.setBounds(286, 6, 531, 123);
 
         TextField_Ph_Pri_CE.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
         TextField_Ph_Pri_CE.addActionListener(new java.awt.event.ActionListener() {
@@ -54,13 +56,9 @@ public class CustomerEntry extends javax.swing.JFrame {
                 TextField_Ph_Pri_CEActionPerformed(evt);
             }
         });
-        getContentPane().add(TextField_Ph_Pri_CE);
-        TextField_Ph_Pri_CE.setBounds(407, 273, 294, 24);
 
         Label_Ph_Pri_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Ph_Pri_CE.setText("PHONE NO.(PRIMARY)");
-        getContentPane().add(Label_Ph_Pri_CE);
-        Label_Ph_Pri_CE.setBounds(407, 237, 159, 18);
 
         Button_Login_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Login_CE.setText("LOGIN");
@@ -69,13 +67,9 @@ public class CustomerEntry extends javax.swing.JFrame {
                 Button_Login_CEActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Login_CE);
-        Button_Login_CE.setBounds(625, 334, 76, 24);
 
         Label_CustEntry_CE.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_CustEntry_CE.setText("CUSTOMER ENTRY");
-        getContentPane().add(Label_CustEntry_CE);
-        Label_CustEntry_CE.setBounds(466, 163, 171, 23);
 
         Button_Back_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Back_CE.setText("BACK");
@@ -84,8 +78,54 @@ public class CustomerEntry extends javax.swing.JFrame {
                 Button_Back_CEActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Back_CE);
-        Button_Back_CE.setBounds(407, 334, 72, 24);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 187, Short.MAX_VALUE)
+                .addComponent(Label_Logo_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Label_Ph_Pri_CE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(Label_CustEntry_CE)
+                            .addGap(358, 358, 358))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Button_Back_CE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Button_Login_CE))
+                                .addComponent(TextField_Ph_Pri_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(290, 290, 290)))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(Label_Logo_CE)
+                .addGap(34, 34, 34)
+                .addComponent(Label_CustEntry_CE)
+                .addGap(41, 41, 41)
+                .addComponent(Label_Ph_Pri_CE)
+                .addGap(38, 38, 38)
+                .addComponent(TextField_Ph_Pri_CE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_Back_CE)
+                    .addComponent(Button_Login_CE))
+                .addContainerGap(210, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(20, 20, 890, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,5 +196,7 @@ public class CustomerEntry extends javax.swing.JFrame {
     private javax.swing.JLabel Label_Logo_CE;
     private javax.swing.JLabel Label_Ph_Pri_CE;
     private javax.swing.JTextField TextField_Ph_Pri_CE;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

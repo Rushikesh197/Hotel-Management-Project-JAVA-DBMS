@@ -25,6 +25,9 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
         Button_Login_Admin = new javax.swing.JButton();
         Label_Pass_Admin = new javax.swing.JLabel();
         Label_Logo_Admin = new javax.swing.JLabel();
@@ -35,6 +38,8 @@ public class Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel2.setBackground(java.awt.Color.darkGray);
+
         Button_Login_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Login_Admin.setText("LOGIN");
         Button_Login_Admin.addActionListener(new java.awt.event.ActionListener() {
@@ -42,31 +47,21 @@ public class Admin extends javax.swing.JFrame {
                 Button_Login_AdminActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Login_Admin);
-        Button_Login_Admin.setBounds(541, 297, 76, 24);
 
         Label_Pass_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Pass_Admin.setText("PASSWORD");
-        getContentPane().add(Label_Pass_Admin);
-        Label_Pass_Admin.setBounds(368, 208, 79, 18);
 
         Label_Logo_Admin.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_Admin.setText(" GRAND HYATT");
-        getContentPane().add(Label_Logo_Admin);
-        Label_Logo_Admin.setBounds(244, 6, 531, 123);
 
         Label_AdminLogin_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_AdminLogin_Admin.setText("ADMIN LOGIN");
-        getContentPane().add(Label_AdminLogin_Admin);
-        Label_AdminLogin_Admin.setBounds(434, 141, 129, 23);
 
         PassField_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PassField_AdminActionPerformed(evt);
             }
         });
-        getContentPane().add(PassField_Admin);
-        PassField_Admin.setBounds(368, 244, 249, 23);
 
         Button_Back_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Back_Admin.setText("BACK");
@@ -75,8 +70,53 @@ public class Admin extends javax.swing.JFrame {
                 Button_Back_AdminActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Back_Admin);
-        Button_Back_Admin.setBounds(368, 297, 72, 24);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(Label_Logo_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(365, 365, 365)
+                        .addComponent(Label_AdminLogin_Admin))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Label_Pass_Admin)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(Button_Back_Admin)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Button_Login_Admin))
+                                .addComponent(PassField_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(186, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(Label_Logo_Admin)
+                .addGap(18, 18, 18)
+                .addComponent(Label_AdminLogin_Admin)
+                .addGap(38, 38, 38)
+                .addComponent(Label_Pass_Admin)
+                .addGap(18, 18, 18)
+                .addComponent(PassField_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_Login_Admin)
+                    .addComponent(Button_Back_Admin))
+                .addContainerGap(224, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(jPanel2);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(20, 20, 900, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,5 +179,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel Label_Logo_Admin;
     private javax.swing.JLabel Label_Pass_Admin;
     private javax.swing.JPasswordField PassField_Admin;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

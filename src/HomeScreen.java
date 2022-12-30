@@ -37,19 +37,21 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jPopupMenu2 = new javax.swing.JPopupMenu();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         Label_Logo_HS = new javax.swing.JLabel();
         Button_Emp_Login_HS = new javax.swing.JButton();
-        Button_Admin_Login_HS = new javax.swing.JButton();
         Label_Emp_Login_HS = new javax.swing.JLabel();
+        Button_Admin_Login_HS = new javax.swing.JButton();
         Label_Admin_Login_HS = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel1.setBackground(java.awt.Color.darkGray);
+
         Label_Logo_HS.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_HS.setText(" GRAND HYATT");
-        getContentPane().add(Label_Logo_HS);
-        Label_Logo_HS.setBounds(230, 10, 531, 123);
 
         Button_Emp_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Emp_Login_HS.setText("LOGIN");
@@ -58,8 +60,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 Button_Emp_Login_HSActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Emp_Login_HS);
-        Button_Emp_Login_HS.setBounds(273, 291, 76, 24);
+
+        Label_Emp_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_Emp_Login_HS.setText("EMPLOYEE LOGIN");
 
         Button_Admin_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Admin_Login_HS.setText("LOGIN");
@@ -68,18 +71,51 @@ public class HomeScreen extends javax.swing.JFrame {
                 Button_Admin_Login_HSActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Admin_Login_HS);
-        Button_Admin_Login_HS.setBounds(654, 291, 76, 24);
-
-        Label_Emp_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
-        Label_Emp_Login_HS.setText("EMPLOYEE LOGIN");
-        getContentPane().add(Label_Emp_Login_HS);
-        Label_Emp_Login_HS.setBounds(240, 250, 166, 23);
 
         Label_Admin_Login_HS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_Admin_Login_HS.setText("ADMIN LOGIN");
-        getContentPane().add(Label_Admin_Login_HS);
-        Label_Admin_Login_HS.setBounds(633, 256, 129, 23);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(Label_Emp_Login_HS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Label_Admin_Login_HS)
+                .addGap(191, 191, 191))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(209, 209, 209)
+                .addComponent(Button_Emp_Login_HS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Button_Admin_Login_HS)
+                .addGap(219, 219, 219))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addComponent(Label_Logo_HS, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(Label_Logo_HS)
+                .addGap(112, 112, 112)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Label_Emp_Login_HS)
+                    .addComponent(Label_Admin_Login_HS))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_Admin_Login_HS)
+                    .addComponent(Button_Emp_Login_HS))
+                .addContainerGap(679, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 30, 940, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,7 +179,9 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel Label_Admin_Login_HS;
     private javax.swing.JLabel Label_Emp_Login_HS;
     private javax.swing.JLabel Label_Logo_HS;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
