@@ -187,10 +187,12 @@ public class CustomerEntry extends javax.swing.JFrame {
                 }
                 
                 if (phno.equals(phnodb)) {
-                     FinalCustomer fc = new FinalCustomer();
-            fc.setVisible(true);
-            fc.setLocationRelativeTo(null);
+                    FinalCustomer fs = new FinalCustomer();
+            fs.setVisible(true);
+            fs.setLocationRelativeTo(null);
             this.dispose();
+                    
+                    this.dispose();
                 }
                 else {
                     JOptionPane.showMessageDialog(this, "Customer Does Not Exist!! Please Check Once Again Or Register.");

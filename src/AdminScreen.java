@@ -26,7 +26,7 @@ public class AdminScreen extends javax.swing.JFrame {
     PreparedStatement ps; 
     int upempid,fin,fin2;
     String updateempid;
-        
+    String updateroom1;
         
     /**
      * Creates new form AdminScreen
@@ -105,7 +105,7 @@ public class AdminScreen extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        custtable = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -128,6 +128,7 @@ public class AdminScreen extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         Emp_DOJ = new javax.swing.JTextField();
+        newid = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -371,8 +372,8 @@ public class AdminScreen extends javax.swing.JFrame {
             }
         });
 
-        jTable5.setBorder(new javax.swing.border.MatteBorder(null));
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        custtable.setBorder(new javax.swing.border.MatteBorder(null));
+        custtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -383,7 +384,7 @@ public class AdminScreen extends javax.swing.JFrame {
                 "ID", "FNAME", "MNAME", "LNAME", "AADHAR", "PH. PRI", "PH. SEC", "EMAIL", "ADDRESS", "GENDER", "MARRIAGE", "DOB"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(custtable);
 
         jLabel16.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         jLabel16.setText("UPDATE ROOM");
@@ -448,7 +449,7 @@ public class AdminScreen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(338, 338, 338)
+                .addGap(339, 339, 339)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -488,7 +489,7 @@ public class AdminScreen extends javax.swing.JFrame {
                                     .addComponent(Emp_Name))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
@@ -562,7 +563,8 @@ public class AdminScreen extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1047, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(122, 122, 122)
+                                        .addComponent(newid, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(newname, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(newdob)
@@ -665,7 +667,8 @@ public class AdminScreen extends javax.swing.JFrame {
                     .addComponent(newaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newdoj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newdob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(emppush, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
@@ -706,7 +709,7 @@ public class AdminScreen extends javax.swing.JFrame {
                     .addComponent(newrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addGap(42, 42, 42)
                 .addComponent(jButton11)
@@ -720,7 +723,7 @@ public class AdminScreen extends javax.swing.JFrame {
         jScrollPane6.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane6);
-        jScrollPane6.setBounds(20, 10, 1130, 520);
+        jScrollPane6.setBounds(20, 20, 1120, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -940,6 +943,7 @@ public class AdminScreen extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         String updateroom = this.uproomno.getText();
+        updateroom1=updateroom;
         model = new DefaultTableModel();
         model.addColumn("ROOM NO.");
         model.addColumn("TYPE");
@@ -964,6 +968,19 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        try {
+            
+             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("delete from Rooms where Room_No=?");
+            ps.setString(1, updateroom1);
+           
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Room Deleted Successfully!");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void uproomnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uproomnoActionPerformed
@@ -974,6 +991,34 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("FNAME");
+        model.addColumn("MNAME");
+        model.addColumn("LNAME");
+        model.addColumn("AADHAR");
+        model.addColumn("PH. PRI");
+        model.addColumn("PH. SEC");
+        model.addColumn("EMAIL");
+        model.addColumn("ADDRESS");
+        model.addColumn("GENDER");
+        model.addColumn("MARRIAGE");
+        model.addColumn("DOB");
+           
+        
+        
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Customer");
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Cust_ID"),rs.getString("Cust_Fname"),rs.getString("Cust_Mname"),rs.getString("Cust_Lname"),rs.getString("Cust_Aadhar"),rs.getString("Cust_Ph_Primary"),rs.getString("Cust_Ph_Secondary"),rs.getString("Cust_Email"),rs.getString("Cust_Address"),rs.getString("Cust_Gender"),rs.getString("Cust_Marriage"),rs.getString("Cust_DOB"), });
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        custtable.setModel(model);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -986,7 +1031,9 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void emppushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emppushActionPerformed
         // TODO add your handling code here:
-       String name1;
+        String id;
+        id=this.newid.getText();
+        String name1;
         name1 = this.newname.getText();
         String dob1;
         dob1 = this.newdob.getText();
@@ -996,26 +1043,26 @@ public class AdminScreen extends javax.swing.JFrame {
         address1 = this.newaddress.getText();
         String aadhar1;
         aadhar1 = this.newaadhar.getText();
-        String salary1;
-        salary1 = this.newsalary.getText();
-        String password1;
-        password1 = this.newgender.getText();
         String gender2;
         gender2 = this.newgender.getText();
+        String password1;
+        password1 = this.newgender.getText();
+        String salary1;
+        salary1 = this.newsalary.getText();
+        
         try {
                     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
-                    ps = conn.prepareStatement("update Employee set Emp_ID=? Emp_Name=?, Emp_=DOB?,Emp_DOJ=?,Emp_Address=?,Emp_Aadhar=?,Emp_Salary=?,Emp_Pass=?,Emp_Gender=? where Emp_ID=?");
-                    ps.setInt(1, fin);
+                    ps = conn.prepareStatement("update Employee set Emp_ID=?, Emp_Name=?, Emp_DOB=?,Emp_DOJ=?,Emp_Address=?,Emp_Aadhar=?,Emp_Gender=?,Emp_Pass=?,Emp_Salary=? where Emp_ID=?");
+                    ps.setString(1, id);
                     ps.setString(2, name1);
                     ps.setString(3, dob1);
                     ps.setString(4, doj1);
                     ps.setString(5, address1);
                     ps.setString(6, aadhar1);
-                    ps.setString(7, salary1);
+                    ps.setString(7, gender2);
                     ps.setString(8, password1);
-                    ps.setString(9, gender2);
+                    ps.setString(9, salary1);
                     ps.setInt(10, fin);
-                    
                     ps.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Employee Record Updated!");
                     AdminScreen as = new AdminScreen();
@@ -1039,7 +1086,7 @@ public class AdminScreen extends javax.swing.JFrame {
         try {
 
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
-            ps = conn.prepareStatement("update Rooms set Room_No=?, Room_Type=?, Room_Status=?, Room_Rate=? where Room_No = ?");
+            ps = conn.prepareStatement("update Rooms set Room_No=?, Room_Type=?, Room_Status=?, Room_Rate=? where Room_No = ? ");
             ps.setString(1, number);
             ps.setString(2, type);
             ps.setString(3, status);
@@ -1121,6 +1168,7 @@ public class AdminScreen extends javax.swing.JFrame {
     private javax.swing.JTextField Room_Rate;
     private javax.swing.JTextField Room_Type;
     private javax.swing.JTable TableEmployee;
+    private javax.swing.JTable custtable;
     private javax.swing.JButton emppush;
     private javax.swing.ButtonGroup genderGroup;
     private javax.swing.JButton jButton1;
@@ -1160,12 +1208,12 @@ public class AdminScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable5;
     private javax.swing.JTextField newaadhar;
     private javax.swing.JTextField newaddress;
     private javax.swing.JTextField newdob;
     private javax.swing.JTextField newdoj;
     private javax.swing.JTextField newgender;
+    private javax.swing.JTextField newid;
     private javax.swing.JTextField newname;
     private javax.swing.JTextField newpassword;
     private javax.swing.JTextField newrate;
