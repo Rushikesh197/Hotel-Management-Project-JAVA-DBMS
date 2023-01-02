@@ -24,7 +24,7 @@ public class AdminScreen extends javax.swing.JFrame {
     DefaultTableModel model;
     Connection conn;
     PreparedStatement ps; 
-    int upempid;
+    int upempid,fin,fin2;
     String updateempid;
         
         
@@ -87,21 +87,21 @@ public class AdminScreen extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        Room_Type = new javax.swing.JTextField();
+        Room_No = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         upfield = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jTextField10 = new javax.swing.JTextField();
+        roomtable = new javax.swing.JTable();
+        Room_Rate = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jTextField12 = new javax.swing.JTextField();
+        uproomno = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        uproom = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -112,20 +112,19 @@ public class AdminScreen extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        newname = new javax.swing.JTextField();
+        newdob = new javax.swing.JTextField();
+        newaddress = new javax.swing.JTextField();
+        newdoj = new javax.swing.JTextField();
+        newaadhar = new javax.swing.JTextField();
+        newgender = new javax.swing.JTextField();
+        newpassword = new javax.swing.JTextField();
+        newsalary = new javax.swing.JTextField();
+        newroomno = new javax.swing.JTextField();
+        newstatus = new javax.swing.JTextField();
+        newtype = new javax.swing.JTextField();
+        newrate = new javax.swing.JTextField();
+        emppush = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         Emp_DOJ = new javax.swing.JTextField();
@@ -262,9 +261,9 @@ public class AdminScreen extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         jLabel14.setText("TYPE");
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        Room_Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                Room_TypeActionPerformed(evt);
             }
         });
 
@@ -293,8 +292,8 @@ public class AdminScreen extends javax.swing.JFrame {
             }
         });
 
-        jTable3.setBorder(new javax.swing.border.MatteBorder(null));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        roomtable.setBorder(new javax.swing.border.MatteBorder(null));
+        roomtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -305,11 +304,11 @@ public class AdminScreen extends javax.swing.JFrame {
                 "ROOM NO.", "TYPE", "STATUS", "RATE"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(roomtable);
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        Room_Rate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                Room_RateActionPerformed(evt);
             }
         });
 
@@ -332,14 +331,14 @@ public class AdminScreen extends javax.swing.JFrame {
             }
         });
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        uproomno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                uproomnoActionPerformed(evt);
             }
         });
 
-        jTable4.setBorder(new javax.swing.border.MatteBorder(null));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        uproom.setBorder(new javax.swing.border.MatteBorder(null));
+        uproom.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -350,7 +349,16 @@ public class AdminScreen extends javax.swing.JFrame {
                 "ROOM NO.", "TYPE", "STATUS", "RATE"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        uproom.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                uproomAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane4.setViewportView(uproom);
 
         jLabel17.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         jLabel17.setText("CUSTOMERS");
@@ -410,11 +418,11 @@ public class AdminScreen extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         jLabel21.setText("ROOMS");
 
-        jButton7.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        jButton7.setText("PUSH");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        emppush.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        emppush.setText("PUSH");
+        emppush.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                emppushActionPerformed(evt);
             }
         });
 
@@ -498,26 +506,26 @@ public class AdminScreen extends javax.swing.JFrame {
                         .addGap(526, 526, 526))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton7)
+                            .addComponent(emppush)
                             .addComponent(jLabel21))
                         .addGap(531, 531, 531))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(newroomno, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(newtype, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(newstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField30))
+                                .addComponent(newrate))
                             .addComponent(jButton12)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(348, 348, 348)
                                     .addComponent(jLabel18)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(uproomno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
@@ -548,29 +556,28 @@ public class AdminScreen extends javax.swing.JFrame {
                                         .addComponent(jLabel15))
                                     .addGap(108, 108, 108)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(Room_Rate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Room_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Room_No, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1047, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(122, 122, 122)
+                                        .addComponent(newname, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(newdob)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField20)
+                                        .addComponent(newdoj, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(newaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(newaadhar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(newgender, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(newpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(newsalary, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1047, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -651,31 +658,30 @@ public class AdminScreen extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newsalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newgender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newaadhar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newdoj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newdob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emppush, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Room_No, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Room_Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Room_Rate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -688,16 +694,16 @@ public class AdminScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uproomno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newroomno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
@@ -714,7 +720,7 @@ public class AdminScreen extends javax.swing.JFrame {
         jScrollPane6.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane6);
-        jScrollPane6.setBounds(30, 20, 1130, 860);
+        jScrollPane6.setBounds(20, 10, 1130, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -848,6 +854,8 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void upfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upfieldActionPerformed
         // TODO add your handling code here:
+        String temp=upfield.getText();
+        fin = Integer.parseInt(temp);
     }//GEN-LAST:event_upfieldActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -870,31 +878,99 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        String number;
+        number = this.Room_No.getText();
+        String type;
+        type = this.Room_Type.getText();
+        String rate;
+        rate = this.Room_Rate.getText();
+        String status="";
+        try {
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                    ps = conn.prepareStatement("insert into Rooms (Room_No,Room_Type,Room_Rate,Room_Status) values(?,?,?,?)");
+                    ps.setString(1, number);
+                    ps.setString(2, type);
+                    ps.setString(3, rate);
+                    ps.setString(4, status);
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Room Record Added");
+                    AdminScreen as = new AdminScreen();
+            as.setVisible(true);
+            as.setLocationRelativeTo(null);
+            this.dispose();
+                }   
+                catch (SQLException ex){
+            JOptionPane.showMessageDialog(this, "Fill All The Details");
+            
+        }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        model = new DefaultTableModel();
+        model.addColumn("ROOM NO.");
+        model.addColumn("TYPE");
+        model.addColumn("STATUS");
+        model.addColumn("RATE");
+        
+        
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Rooms");
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Room_No"), rs.getString("Room_Type"), rs.getString("Room_Status"), rs.getString("Room_Rate")});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        roomtable.setModel(model);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void Room_RateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room_RateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_Room_RateActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void Room_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room_TypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_Room_TypeActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        String updateroom = this.uproomno.getText();
+        model = new DefaultTableModel();
+        model.addColumn("ROOM NO.");
+        model.addColumn("TYPE");
+        model.addColumn("STATUS");
+        model.addColumn("RATE");
+        
+        
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Rooms where Room_No=?");
+            ps.setString(1, updateroom);
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Room_No"), rs.getString("Room_Type"), rs.getString("Room_Status"), rs.getString("Room_Rate")});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        uproom.setModel(model);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void uproomnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uproomnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+        String temp=uproomno.getText();
+        fin2 = Integer.parseInt(temp);
+    }//GEN-LAST:event_uproomnoActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
@@ -908,12 +984,74 @@ public class AdminScreen extends javax.swing.JFrame {
             this.dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void emppushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emppushActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+       String name1;
+        name1 = this.newname.getText();
+        String dob1;
+        dob1 = this.newdob.getText();
+        String doj1;
+        doj1 = this.newdoj.getText();
+        String address1;
+        address1 = this.newaddress.getText();
+        String aadhar1;
+        aadhar1 = this.newaadhar.getText();
+        String salary1;
+        salary1 = this.newsalary.getText();
+        String password1;
+        password1 = this.newgender.getText();
+        String gender2;
+        gender2 = this.newgender.getText();
+        try {
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                    ps = conn.prepareStatement("update Employee set Emp_ID=? Emp_Name=?, Emp_=DOB?,Emp_DOJ=?,Emp_Address=?,Emp_Aadhar=?,Emp_Salary=?,Emp_Pass=?,Emp_Gender=? where Emp_ID=?");
+                    ps.setInt(1, fin);
+                    ps.setString(2, name1);
+                    ps.setString(3, dob1);
+                    ps.setString(4, doj1);
+                    ps.setString(5, address1);
+                    ps.setString(6, aadhar1);
+                    ps.setString(7, salary1);
+                    ps.setString(8, password1);
+                    ps.setString(9, gender2);
+                    ps.setInt(10, fin);
+                    
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Employee Record Updated!");
+                    AdminScreen as = new AdminScreen();
+            as.setVisible(true);
+            as.setLocationRelativeTo(null);
+            this.dispose();
+                }   
+                catch (SQLException ex){
+            JOptionPane.showMessageDialog(this, "Fill All The Details");
+            
+        }
+    }//GEN-LAST:event_emppushActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        String number = newroomno.getText();
+        String type = newtype.getText();
+        String status = newstatus.getText();
+        String rate = newrate.getText();
+        
+        try {
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("update Rooms set Room_No=?, Room_Type=?, Room_Status=?, Room_Rate=? where Room_No = ?");
+            ps.setString(1, number);
+            ps.setString(2, type);
+            ps.setString(3, status);
+            ps.setString(4, rate);
+            ps.setInt(5, fin2);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Record Updated");
+            
+        }     
+        catch (SQLException ex) {
+            Logger.getLogger(AdminScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void Emp_DOJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_DOJActionPerformed
@@ -928,6 +1066,10 @@ public class AdminScreen extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void uproomAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_uproomAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uproomAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -975,7 +1117,11 @@ public class AdminScreen extends javax.swing.JFrame {
     private javax.swing.JTable EmployeeUpdate;
     private javax.swing.JRadioButton FemaleRadio;
     private javax.swing.JRadioButton MaleRadio;
+    private javax.swing.JTextField Room_No;
+    private javax.swing.JTextField Room_Rate;
+    private javax.swing.JTextField Room_Type;
     private javax.swing.JTable TableEmployee;
+    private javax.swing.JButton emppush;
     private javax.swing.ButtonGroup genderGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -986,7 +1132,6 @@ public class AdminScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
@@ -1015,26 +1160,22 @@ public class AdminScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField newaadhar;
+    private javax.swing.JTextField newaddress;
+    private javax.swing.JTextField newdob;
+    private javax.swing.JTextField newdoj;
+    private javax.swing.JTextField newgender;
+    private javax.swing.JTextField newname;
+    private javax.swing.JTextField newpassword;
+    private javax.swing.JTextField newrate;
+    private javax.swing.JTextField newroomno;
+    private javax.swing.JTextField newsalary;
+    private javax.swing.JTextField newstatus;
+    private javax.swing.JTextField newtype;
+    private javax.swing.JTable roomtable;
     private javax.swing.JTextField upfield;
+    private javax.swing.JTable uproom;
+    private javax.swing.JTextField uproomno;
     // End of variables declaration//GEN-END:variables
 }
