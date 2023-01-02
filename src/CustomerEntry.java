@@ -171,6 +171,7 @@ public class CustomerEntry extends javax.swing.JFrame {
     private void Button_Login_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_CEActionPerformed
         String phno = this.TextField_Ph_Pri_CE.getText();
         Long l1 = Long.parseLong(phno);
+        new FinalCustomer(phno).setVisible(true);
         String phnodb=null; 
         Long l2=null;
         if (phno != null ){

@@ -1,5 +1,10 @@
 
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,7 +16,9 @@ import java.awt.Dimension;
  * @author rushikeshgadewar
  */
 public class RoomDetails extends javax.swing.JFrame {
-
+    DefaultTableModel model;
+    Connection conn;
+    PreparedStatement ps;
     /**
      * Creates new form RoomDetails
      */
@@ -21,6 +28,24 @@ public class RoomDetails extends javax.swing.JFrame {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
+        model = new DefaultTableModel();
+        model.addColumn("ROOM NO.");
+        model.addColumn("TYPE");
+        model.addColumn("STATUS");
+        model.addColumn("RATE");
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Rooms");
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Room_No"), rs.getString("Room_Type"), rs.getString("Room_Status"),rs.getString("Room_Rate")});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        jTable3.setModel(model);
     }
 
     /**

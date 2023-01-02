@@ -1,5 +1,10 @@
 
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,16 +16,47 @@ import java.awt.Dimension;
  * @author rushikeshgadewar
  */
 public class FinalCustomer extends javax.swing.JFrame {
-
+    String phno1;
+    DefaultTableModel model;
+    Connection conn;
+    PreparedStatement ps;
     /**
      * Creates new form FinalCustomer
      */
-    public FinalCustomer() {
+    public FinalCustomer (String phno) {
+        phno1=phno;
         initComponents();
         this.setPreferredSize(new Dimension(1500, 1500));
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
+        model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("FNAME");
+        model.addColumn("MNAME");
+        model.addColumn("LNAME");
+        model.addColumn("AADHAR");
+        model.addColumn("PH. PRI");
+        model.addColumn("PH. SEC");
+        model.addColumn("EMAIL");
+        model.addColumn("ADDRESS");
+        model.addColumn("GENDER");
+        model.addColumn("MARRIAGE");
+        model.addColumn("DOB");
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Customer where Cust_Ph_Primary = ?");
+            ps.setString(1, phno1);
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Cust_ID"), rs.getString("Cust_Fname"), rs.getString("Cust_Mname"),rs.getString("Cust_Lname"),rs.getString("Cust_Aadhar"),rs.getString("Cust_Ph_Primary"),rs.getString("Cust_Ph_Secondary"),rs.getString("Cust_Email"),rs.getString("Cust_Address"),rs.getString("Cust_Gender"),rs.getString("Cust_Marriage"),rs.getString("Cust_DOB")});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        Table_CustDets_FC.setModel(model);
     }
 
     /**
@@ -371,7 +407,7 @@ public class FinalCustomer extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 30, 1250, 530);
+        jScrollPane2.setBounds(30, 30, 1250, 1510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -430,7 +466,10 @@ public class FinalCustomer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FinalCustomer().setVisible(true);
+                //new FinalCustomer().setVisible(true);
+                FinalCustomer FinalCustomer = new FinalCustomer("");
+                FinalCustomer.setVisible(true);
+                FinalCustomer.pack();
             }
         });
     }
