@@ -64,7 +64,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="TextField_EmpID_EL" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="Emp_ID" min="-2" pref="294" max="-2" attributes="0"/>
                                   <Component id="Label_EmpID_EL" min="-2" max="-2" attributes="0"/>
                                   <Component id="Label_Pass_EL" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -73,7 +73,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="Button_Login_EL" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="TextField_Pass_EL" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
+                                      <Component id="Emp_Pass" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -96,11 +96,11 @@
                       <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
                       <Component id="Label_EmpID_EL" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="TextField_EmpID_EL" min="-2" max="-2" attributes="0"/>
+                      <Component id="Emp_ID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="Label_Pass_EL" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="TextField_Pass_EL" min="-2" max="-2" attributes="0"/>
+                      <Component id="Emp_Pass" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Button_Back_EL" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -135,17 +135,18 @@
                 <Property name="text" type="java.lang.String" value="LOGIN"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Button_Login_ELMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_Login_ELActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="TextField_EmpID_EL">
+            <Component class="javax.swing.JTextField" name="Emp_ID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="STIX Two Text" size="14" style="1"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextField_EmpID_ELActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Emp_IDActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="Label_Pass_EL">
@@ -164,9 +165,9 @@
                 <Property name="text" type="java.lang.String" value="EMPLOYEE LOGIN"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="TextField_Pass_EL">
+            <Component class="javax.swing.JPasswordField" name="Emp_Pass">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextField_Pass_ELActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Emp_PassActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Button_Back_EL">

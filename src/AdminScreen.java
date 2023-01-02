@@ -1,5 +1,6 @@
 
 
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,6 +28,10 @@ public class AdminScreen extends javax.swing.JFrame {
      */
     public AdminScreen() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**

@@ -7,6 +7,7 @@
  *
  * @author rushikeshgadewar
  */
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,6 +23,10 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -34,6 +39,8 @@ public class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         Label_Logo_MS = new javax.swing.JLabel();
         Button_RoomDets_MS = new javax.swing.JButton();
         Button_CustEntry_MS = new javax.swing.JButton();
@@ -46,10 +53,10 @@ public class MainScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel1.setBackground(java.awt.Color.darkGray);
+
         Label_Logo_MS.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_MS.setText(" GRAND HYATT");
-        getContentPane().add(Label_Logo_MS);
-        Label_Logo_MS.setBounds(277, 6, 531, 123);
 
         Button_RoomDets_MS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_RoomDets_MS.setText("ROOM DETAILS");
@@ -58,8 +65,6 @@ public class MainScreen extends javax.swing.JFrame {
                 Button_RoomDets_MSActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_RoomDets_MS);
-        Button_RoomDets_MS.setBounds(277, 237, 138, 24);
 
         Button_CustEntry_MS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_CustEntry_MS.setText("CUSTOMER ENTRY");
@@ -68,13 +73,9 @@ public class MainScreen extends javax.swing.JFrame {
                 Button_CustEntry_MSActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_CustEntry_MS);
-        Button_CustEntry_MS.setBounds(647, 237, 161, 24);
 
         Label_MainScreen_MS.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_MainScreen_MS.setText("MAIN SCREEN");
-        getContentPane().add(Label_MainScreen_MS);
-        Label_MainScreen_MS.setBounds(474, 147, 129, 23);
 
         Button_Back_MS.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Back_MS.setText("BACK");
@@ -83,8 +84,50 @@ public class MainScreen extends javax.swing.JFrame {
                 Button_Back_MSActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_Back_MS);
-        Button_Back_MS.setBounds(499, 303, 72, 24);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(Label_MainScreen_MS))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Button_RoomDets_MS)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Button_CustEntry_MS))
+                                .addComponent(Label_Logo_MS, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Button_Back_MS)
+                        .addGap(291, 291, 291))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(Label_Logo_MS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Label_MainScreen_MS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_RoomDets_MS)
+                    .addComponent(Button_CustEntry_MS))
+                .addGap(37, 37, 37)
+                .addComponent(Button_Back_MS)
+                .addGap(41, 41, 41))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(20, 20, 660, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,5 +201,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel Label_Logo_MS;
     private javax.swing.JLabel Label_MainScreen_MS;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

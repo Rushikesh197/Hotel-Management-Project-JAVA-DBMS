@@ -10,6 +10,7 @@
  * @author rushikeshgadewar
  */
 
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,11 +28,28 @@ public class Registration extends javax.swing.JFrame {
     /**
      * Creates new form Rushi1
      */
+    String gender1,marriage1;
     public Registration() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        
+        groupRadio();
         
     }
+    public void groupRadio(){
+        
+        genderGroup.add(MaleRadio);
+        genderGroup.add(FemaleRadio);
 
+    }
+    public void groupradio(){
+        marriageGroup.add(YesRadio);
+        marriageGroup.add(NoRadio);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,40 +59,40 @@ public class Registration extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        genderGroup = new javax.swing.ButtonGroup();
+        marriageGroup = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        TextField_Fname_NCR = new javax.swing.JTextField();
+        Cust_Fname = new javax.swing.JTextField();
         Label_Name_NCR = new javax.swing.JLabel();
         Label_Logo_NCR = new javax.swing.JLabel();
         Label_NCR = new javax.swing.JLabel();
-        TextField_Mname_NCR = new javax.swing.JTextField();
-        TextField_Lname_NCR = new javax.swing.JTextField();
+        Cust_Mname = new javax.swing.JTextField();
+        Cust_Lname = new javax.swing.JTextField();
         Label_Fname_NCR = new javax.swing.JLabel();
         Label_Mname_NCR = new javax.swing.JLabel();
         Label_Lname_NCR = new javax.swing.JLabel();
         Label_Ph_Pri_NCR = new javax.swing.JLabel();
-        TextField_Ph_Pri_NCR = new javax.swing.JTextField();
-        TextField_Email_NCR = new javax.swing.JTextField();
+        Cust_Ph_Primary = new javax.swing.JTextField();
+        Cust_Email = new javax.swing.JTextField();
         Label_Ph_Sec_NCR = new javax.swing.JLabel();
         Label_Email_NCR = new javax.swing.JLabel();
-        TextField_Ph_Sec_NCR = new javax.swing.JTextField();
+        Cust_Ph_Secondary = new javax.swing.JTextField();
         Label_Aadhar_NCR = new javax.swing.JLabel();
-        TextField_Aadhar_NCR = new javax.swing.JTextField();
-        register = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
-        confirmpassword = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
+        Cust_Aadhar = new javax.swing.JTextField();
         Label_DOB_NCR = new javax.swing.JLabel();
-        TextField_DOB_NCR = new javax.swing.JTextField();
+        Cust_DOB = new javax.swing.JTextField();
         Label_Marr_Status_NCR = new javax.swing.JLabel();
-        RadioButton_Yes_Marr_Status_NCR = new javax.swing.JRadioButton();
-        RadioButton_No_Marr_Status_NCR = new javax.swing.JRadioButton();
+        YesRadio = new javax.swing.JRadioButton();
+        NoRadio = new javax.swing.JRadioButton();
         Label_Gender_NCR = new javax.swing.JLabel();
-        RadioButton_Male_Gender_NCR = new javax.swing.JRadioButton();
-        RadioButton_Female_Gender_NCR = new javax.swing.JRadioButton();
+        MaleRadio = new javax.swing.JRadioButton();
+        FemaleRadio = new javax.swing.JRadioButton();
         Button_Register_NCR = new javax.swing.JButton();
         Button_Back_NCR = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Cust_Address = new javax.swing.JTextArea();
+        Label_DOB_NCR1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -84,10 +102,10 @@ public class Registration extends javax.swing.JFrame {
 
         jPanel1.setBackground(java.awt.Color.darkGray);
 
-        TextField_Fname_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_Fname_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_Fname.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Fname_NCRActionPerformed(evt);
+                Cust_FnameActionPerformed(evt);
             }
         });
 
@@ -100,12 +118,12 @@ public class Registration extends javax.swing.JFrame {
         Label_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_NCR.setText("NEW CUSTOMER REGISTRATION");
 
-        TextField_Mname_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Mname.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
 
-        TextField_Lname_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_Lname_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_Lname.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Lname_NCRActionPerformed(evt);
+                Cust_LnameActionPerformed(evt);
             }
         });
 
@@ -121,17 +139,17 @@ public class Registration extends javax.swing.JFrame {
         Label_Ph_Pri_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Ph_Pri_NCR.setText("PHONE NO.(PRIMARY)");
 
-        TextField_Ph_Pri_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_Ph_Pri_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_Ph_Primary.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Ph_Primary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Ph_Pri_NCRActionPerformed(evt);
+                Cust_Ph_PrimaryActionPerformed(evt);
             }
         });
 
-        TextField_Email_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_Email_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_Email.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Email_NCRActionPerformed(evt);
+                Cust_EmailActionPerformed(evt);
             }
         });
 
@@ -141,80 +159,92 @@ public class Registration extends javax.swing.JFrame {
         Label_Email_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Email_NCR.setText("EMAIL ID");
 
-        TextField_Ph_Sec_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_Ph_Sec_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_Ph_Secondary.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Ph_Secondary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Ph_Sec_NCRActionPerformed(evt);
+                Cust_Ph_SecondaryActionPerformed(evt);
             }
         });
 
         Label_Aadhar_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Aadhar_NCR.setText("AADHAR NUMBER");
 
-        TextField_Aadhar_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_Aadhar_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_Aadhar.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_Aadhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Aadhar_NCRActionPerformed(evt);
+                Cust_AadharActionPerformed(evt);
             }
         });
-
-        register.setText("SIGN UP");
-        register.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerMouseClicked(evt);
-            }
-        });
-        register.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("PASSWORD");
-
-        confirmpassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmpasswordActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("CONFIRM PASSWORD");
 
         Label_DOB_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_DOB_NCR.setText("DATE OF BIRTH");
 
-        TextField_DOB_NCR.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
-        TextField_DOB_NCR.addActionListener(new java.awt.event.ActionListener() {
+        Cust_DOB.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
+        Cust_DOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_DOB_NCRActionPerformed(evt);
+                Cust_DOBActionPerformed(evt);
             }
         });
 
         Label_Marr_Status_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Marr_Status_NCR.setText("MARRIAGE STATUS");
 
-        RadioButton_Yes_Marr_Status_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        RadioButton_Yes_Marr_Status_NCR.setText("YES");
-
-        RadioButton_No_Marr_Status_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        RadioButton_No_Marr_Status_NCR.setText("NO");
-        RadioButton_No_Marr_Status_NCR.addActionListener(new java.awt.event.ActionListener() {
+        marriageGroup.add(YesRadio);
+        YesRadio.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        YesRadio.setText("YES");
+        YesRadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                YesRadioMouseClicked(evt);
+            }
+        });
+        YesRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioButton_No_Marr_Status_NCRActionPerformed(evt);
+                YesRadioActionPerformed(evt);
+            }
+        });
+
+        marriageGroup.add(NoRadio);
+        NoRadio.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        NoRadio.setText("NO");
+        NoRadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NoRadioMouseClicked(evt);
+            }
+        });
+        NoRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoRadioActionPerformed(evt);
             }
         });
 
         Label_Gender_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Gender_NCR.setText("GENDER");
 
-        RadioButton_Male_Gender_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        RadioButton_Male_Gender_NCR.setText("MALE");
-
-        RadioButton_Female_Gender_NCR.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        RadioButton_Female_Gender_NCR.setText("FEMALE");
-        RadioButton_Female_Gender_NCR.addActionListener(new java.awt.event.ActionListener() {
+        genderGroup.add(MaleRadio);
+        MaleRadio.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        MaleRadio.setText("MALE");
+        MaleRadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MaleRadioMouseClicked(evt);
+            }
+        });
+        MaleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioButton_Female_Gender_NCRActionPerformed(evt);
+                MaleRadioActionPerformed(evt);
+            }
+        });
+
+        genderGroup.add(FemaleRadio);
+        FemaleRadio.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        FemaleRadio.setText("FEMALE");
+        FemaleRadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FemaleRadioMouseClicked(evt);
+            }
+        });
+        FemaleRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FemaleRadioActionPerformed(evt);
             }
         });
 
@@ -234,6 +264,13 @@ public class Registration extends javax.swing.JFrame {
             }
         });
 
+        Cust_Address.setColumns(20);
+        Cust_Address.setRows(5);
+        jScrollPane2.setViewportView(Cust_Address);
+
+        Label_DOB_NCR1.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_DOB_NCR1.setText("ADDRESS");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -244,67 +281,53 @@ public class Registration extends javax.swing.JFrame {
                         .addGap(344, 344, 344)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Label_Ph_Sec_NCR)
+                            .addComponent(Label_DOB_NCR)
+                            .addComponent(Cust_Aadhar, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Label_Aadhar_NCR)
+                            .addComponent(Cust_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Label_Email_NCR)
+                            .addComponent(Cust_Ph_Secondary, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Cust_Ph_Primary, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Label_Ph_Pri_NCR)
+                            .addComponent(Label_Name_NCR)
+                            .addComponent(Label_NCR)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Button_Register_NCR)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Label_Gender_NCR)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(RadioButton_Male_Gender_NCR)
-                                                .addGap(38, 38, 38)
-                                                .addComponent(RadioButton_Female_Gender_NCR))
-                                            .addComponent(TextField_DOB_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Label_Marr_Status_NCR)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(RadioButton_Yes_Marr_Status_NCR)
-                                                .addGap(33, 33, 33)
-                                                .addComponent(RadioButton_No_Marr_Status_NCR))))
+                                .addGap(21, 21, 21)
+                                .addComponent(Label_Fname_NCR)
+                                .addGap(62, 62, 62)
+                                .addComponent(Label_Mname_NCR)
+                                .addGap(58, 58, 58)
+                                .addComponent(Label_Lname_NCR))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Cust_Fname, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Cust_Mname, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Cust_Lname, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Label_DOB_NCR1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(Button_Back_NCR)
-                                    .addComponent(Label_DOB_NCR)
-                                    .addComponent(TextField_Aadhar_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Label_Aadhar_NCR)
-                                    .addComponent(TextField_Email_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Label_Email_NCR)
-                                    .addComponent(TextField_Ph_Sec_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextField_Ph_Pri_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Label_Ph_Pri_NCR)
-                                    .addComponent(Label_Name_NCR)
-                                    .addComponent(Label_NCR)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(Label_Fname_NCR)
-                                        .addGap(62, 62, 62)
-                                        .addComponent(Label_Mname_NCR)
-                                        .addGap(58, 58, 58)
-                                        .addComponent(Label_Lname_NCR))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(TextField_Fname_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(TextField_Mname_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(TextField_Lname_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(138, 138, 138)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                                        .addComponent(jLabel4))))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Button_Register_NCR))
+                                .addComponent(Cust_DOB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Label_Marr_Status_NCR)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(YesRadio)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(NoRadio))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Label_Gender_NCR)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(MaleRadio)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(FemaleRadio)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addComponent(Label_Logo_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(confirmpassword)
-                    .addComponent(register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(127, 127, 127))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,9 +340,9 @@ public class Registration extends javax.swing.JFrame {
                 .addComponent(Label_Name_NCR)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextField_Fname_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextField_Mname_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextField_Lname_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Cust_Fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cust_Mname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cust_Lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Fname_NCR)
@@ -328,154 +351,137 @@ public class Registration extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(Label_Ph_Pri_NCR)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_Ph_Pri_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cust_Ph_Primary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(Label_Ph_Sec_NCR)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_Ph_Sec_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cust_Ph_Secondary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Label_Email_NCR)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_Email_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cust_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Label_Aadhar_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_Aadhar_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(Cust_Aadhar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Label_DOB_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_DOB_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addComponent(Cust_DOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(Label_DOB_NCR1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Gender_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RadioButton_Male_Gender_NCR)
-                    .addComponent(RadioButton_Female_Gender_NCR))
-                .addGap(36, 36, 36)
+                    .addComponent(MaleRadio)
+                    .addComponent(FemaleRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Marr_Status_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RadioButton_Yes_Marr_Status_NCR)
-                    .addComponent(RadioButton_No_Marr_Status_NCR))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Button_Back_NCR)
-                            .addComponent(Button_Register_NCR)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)))
-                .addGap(18, 18, 18)
-                .addComponent(confirmpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(register)
-                .addContainerGap())
+                    .addComponent(YesRadio)
+                    .addComponent(NoRadio))
+                .addGap(51, 51, 51)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_Back_NCR)
+                    .addComponent(Button_Register_NCR))
+                .addGap(236, 236, 236))
         );
 
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 20, 960, 570);
+        jScrollPane1.setBounds(30, 20, 960, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextField_Fname_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Fname_NCRActionPerformed
+    private void Cust_FnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_FnameActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_TextField_Fname_NCRActionPerformed
+    }//GEN-LAST:event_Cust_FnameActionPerformed
 
-    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+    private void Cust_LnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_LnameActionPerformed
         // TODO add your handling code here:
-        String User_name;
-        User_name=this.TextField_Fname_NCR.getText();
-        String password;
-        password=this.password.getText();
-        String confirmpassword;
-        confirmpassword=this.confirmpassword.getText();
-        System.out.println("Hello");
-        if(User_name!=null && password!=null){
-            System.out.println(User_name +" "+password);
-            if(password.equals(confirmpassword)){
-            try
-        {
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/Trial?user=root&password=Rushi12345$");
-            ps = conn.prepareStatement("insert into Users(User_name,password) values(?,?)");
-            ps.setString(1, User_name);
-            ps.setString(2 ,password);
-            ps.executeUpdate();
-            
-           /* Login l = new Login();
-            l.setVisible(true);
-            l.setLocationRelativeTo(null);
-            this.dispose();*/
-            
-            HomeScreen h = new HomeScreen();
-            h.setVisible(true);
-            h.setLocationRelativeTo(null);
-            this.dispose();
-  
-        } catch(SQLException ex)
-            {
-            System.err.println(ex);
-            }
-        }
-            else
-                JOptionPane.showMessageDialog(this , "Password is not the same ma boi!!");
-            }
-    }//GEN-LAST:event_registerActionPerformed
+    }//GEN-LAST:event_Cust_LnameActionPerformed
 
-    private void confirmpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpasswordActionPerformed
+    private void Cust_Ph_PrimaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_Ph_PrimaryActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_confirmpasswordActionPerformed
+    }//GEN-LAST:event_Cust_Ph_PrimaryActionPerformed
 
-    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
+    private void Cust_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_EmailActionPerformed
         // TODO add your handling code here:
-        
-        if(password==confirmpassword)
-        {
-            
-        }
-    }//GEN-LAST:event_registerMouseClicked
+    }//GEN-LAST:event_Cust_EmailActionPerformed
 
-    private void TextField_Lname_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Lname_NCRActionPerformed
+    private void Cust_Ph_SecondaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_Ph_SecondaryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_Lname_NCRActionPerformed
+    }//GEN-LAST:event_Cust_Ph_SecondaryActionPerformed
 
-    private void TextField_Ph_Pri_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Ph_Pri_NCRActionPerformed
+    private void Cust_DOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_DOBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_Ph_Pri_NCRActionPerformed
+    }//GEN-LAST:event_Cust_DOBActionPerformed
 
-    private void TextField_Email_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Email_NCRActionPerformed
+    private void Cust_AadharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cust_AadharActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_Email_NCRActionPerformed
+    }//GEN-LAST:event_Cust_AadharActionPerformed
 
-    private void TextField_Ph_Sec_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Ph_Sec_NCRActionPerformed
+    private void FemaleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemaleRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_Ph_Sec_NCRActionPerformed
+        gender1= FemaleRadio.getText();
+    }//GEN-LAST:event_FemaleRadioActionPerformed
 
-    private void TextField_DOB_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_DOB_NCRActionPerformed
+    private void NoRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_DOB_NCRActionPerformed
-
-    private void TextField_Aadhar_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Aadhar_NCRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_Aadhar_NCRActionPerformed
-
-    private void RadioButton_Female_Gender_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton_Female_Gender_NCRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RadioButton_Female_Gender_NCRActionPerformed
-
-    private void RadioButton_No_Marr_Status_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton_No_Marr_Status_NCRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RadioButton_No_Marr_Status_NCRActionPerformed
+        marriage1= NoRadio.getText();
+    }//GEN-LAST:event_NoRadioActionPerformed
 
     private void Button_Register_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Register_NCRActionPerformed
         // TODO add your handling code here:
+        String fname;
+        fname = this.Cust_Fname.getText();
+        String mname;
+        mname = this.Cust_Mname.getText();
+        String lname;
+        lname = this.Cust_Lname.getText();
+        String phnopri;
+        phnopri = this.Cust_Ph_Primary.getText();
+        String phnosec;
+        phnosec = this.Cust_Ph_Secondary.getText();
+        String email;
+        email = this.Cust_Email.getText();
+        String aadhar;
+        aadhar = this.Cust_Aadhar.getText();
+        String dob;
+        dob = this.Cust_DOB.getText();
+        String address;
+        address = this.Cust_Address.getText();
+        try {
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                    ps = conn.prepareStatement("insert into Customer(Cust_Fname,Cust_Mname,Cust_Lname,Cust_Ph_Primary,Cust_Ph_Secondary,Cust_Email,Cust_Aadhar,Cust_DOB,Cust_Address,Cust_Gender,Cust_Marriage) values(?,?,?,?,?,?,?,?,?,?,?)");
+                    ps.setString(1, fname);
+                    ps.setString(2, mname);
+                    ps.setString(3, lname);
+                    ps.setString(4, phnopri);
+                    ps.setString(5, phnosec);
+                    ps.setString(6, email);
+                    ps.setString(7, aadhar);
+                    ps.setString(8, dob);
+                    ps.setString(9, address);
+                    ps.setString(10, gender1);
+                    ps.setString(11, marriage1);
+
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Record Added");
+                    CustomerEntry ce = new CustomerEntry();
+                    ce.setVisible(true);
+                    ce.setLocationRelativeTo(null);
+                    this.dispose();
+                }   
+                catch (SQLException ex){
+            JOptionPane.showMessageDialog(this, "Fill all details");
+            
+        }
     }//GEN-LAST:event_Button_Register_NCRActionPerformed
 
     private void Button_Back_NCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_NCRActionPerformed
@@ -486,6 +492,36 @@ public class Registration extends javax.swing.JFrame {
             this.dispose();
 
     }//GEN-LAST:event_Button_Back_NCRActionPerformed
+
+    private void MaleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleRadioActionPerformed
+        // TODO add your handling code here:
+        gender1= MaleRadio.getText();
+    }//GEN-LAST:event_MaleRadioActionPerformed
+
+    private void YesRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesRadioActionPerformed
+        // TODO add your handling code here:
+        marriage1= YesRadio.getText();
+    }//GEN-LAST:event_YesRadioActionPerformed
+
+    private void YesRadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YesRadioMouseClicked
+        // TODO add your handling code here:
+        marriage= "Yes";
+    }//GEN-LAST:event_YesRadioMouseClicked
+
+    private void NoRadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NoRadioMouseClicked
+        // TODO add your handling code here:
+        marriage= "No";
+    }//GEN-LAST:event_NoRadioMouseClicked
+
+    private void MaleRadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaleRadioMouseClicked
+        // TODO add your handling code here:
+        gender = "Male";
+    }//GEN-LAST:event_MaleRadioMouseClicked
+
+    private void FemaleRadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FemaleRadioMouseClicked
+        // TODO add your handling code here:
+        gender = "Female";
+    }//GEN-LAST:event_FemaleRadioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -528,8 +564,19 @@ public class Registration extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Back_NCR;
     private javax.swing.JButton Button_Register_NCR;
+    private javax.swing.JTextField Cust_Aadhar;
+    private javax.swing.JTextArea Cust_Address;
+    private javax.swing.JTextField Cust_DOB;
+    private javax.swing.JTextField Cust_Email;
+    private javax.swing.JTextField Cust_Fname;
+    private javax.swing.JTextField Cust_Lname;
+    private javax.swing.JTextField Cust_Mname;
+    private javax.swing.JTextField Cust_Ph_Primary;
+    private javax.swing.JTextField Cust_Ph_Secondary;
+    private javax.swing.JRadioButton FemaleRadio;
     private javax.swing.JLabel Label_Aadhar_NCR;
     private javax.swing.JLabel Label_DOB_NCR;
+    private javax.swing.JLabel Label_DOB_NCR1;
     private javax.swing.JLabel Label_Email_NCR;
     private javax.swing.JLabel Label_Fname_NCR;
     private javax.swing.JLabel Label_Gender_NCR;
@@ -541,27 +588,18 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JLabel Label_Name_NCR;
     private javax.swing.JLabel Label_Ph_Pri_NCR;
     private javax.swing.JLabel Label_Ph_Sec_NCR;
-    private javax.swing.JRadioButton RadioButton_Female_Gender_NCR;
-    private javax.swing.JRadioButton RadioButton_Male_Gender_NCR;
-    private javax.swing.JRadioButton RadioButton_No_Marr_Status_NCR;
-    private javax.swing.JRadioButton RadioButton_Yes_Marr_Status_NCR;
-    private javax.swing.JTextField TextField_Aadhar_NCR;
-    private javax.swing.JTextField TextField_DOB_NCR;
-    private javax.swing.JTextField TextField_Email_NCR;
-    private javax.swing.JTextField TextField_Fname_NCR;
-    private javax.swing.JTextField TextField_Lname_NCR;
-    private javax.swing.JTextField TextField_Mname_NCR;
-    private javax.swing.JTextField TextField_Ph_Pri_NCR;
-    private javax.swing.JTextField TextField_Ph_Sec_NCR;
-    private javax.swing.JPasswordField confirmpassword;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton MaleRadio;
+    private javax.swing.JRadioButton NoRadio;
+    private javax.swing.JRadioButton YesRadio;
+    private javax.swing.ButtonGroup genderGroup;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JButton register;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.ButtonGroup marriageGroup;
     // End of variables declaration//GEN-END:variables
-
+    private String gender;
+    private String marriage;
+    
     private String getText111() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

@@ -1,3 +1,9 @@
+
+import java.awt.Dimension;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +20,10 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -32,7 +42,7 @@ public class Admin extends javax.swing.JFrame {
         Label_Pass_Admin = new javax.swing.JLabel();
         Label_Logo_Admin = new javax.swing.JLabel();
         Label_AdminLogin_Admin = new javax.swing.JLabel();
-        PassField_Admin = new javax.swing.JPasswordField();
+        Admin_Pass = new javax.swing.JPasswordField();
         Button_Back_Admin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,9 +67,9 @@ public class Admin extends javax.swing.JFrame {
         Label_AdminLogin_Admin.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_AdminLogin_Admin.setText("ADMIN LOGIN");
 
-        PassField_Admin.addActionListener(new java.awt.event.ActionListener() {
+        Admin_Pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PassField_AdminActionPerformed(evt);
+                Admin_PassActionPerformed(evt);
             }
         });
 
@@ -92,7 +102,7 @@ public class Admin extends javax.swing.JFrame {
                                     .addComponent(Button_Back_Admin)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Button_Login_Admin))
-                                .addComponent(PassField_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(Admin_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(186, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -105,7 +115,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(Label_Pass_Admin)
                 .addGap(18, 18, 18)
-                .addComponent(PassField_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Admin_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_Login_Admin)
@@ -123,11 +133,37 @@ public class Admin extends javax.swing.JFrame {
 
     private void Button_Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_AdminActionPerformed
         // TODO add your handling code here:
+         String AdminPass;
+         String pass="Admin";
+        AdminPass=this.Admin_Pass.getText();
+      
+        if(AdminPass!=null){
+            
+            if(AdminPass.equals(pass))
+            
+        {
+           
+            
+           /* Login l = new Login();
+            l.setVisible(true);
+            l.setLocationRelativeTo(null);
+            this.dispose();*/
+            
+            AdminScreen as = new AdminScreen();
+            as.setVisible(true);
+            as.setLocationRelativeTo(null);
+            this.dispose();
+  
+        } 
+        
+            else
+                JOptionPane.showMessageDialog(this , "Incorrect Password!!");
+            }
     }//GEN-LAST:event_Button_Login_AdminActionPerformed
 
-    private void PassField_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassField_AdminActionPerformed
+    private void Admin_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Admin_PassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PassField_AdminActionPerformed
+    }//GEN-LAST:event_Admin_PassActionPerformed
 
     private void Button_Back_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_AdminActionPerformed
         // TODO add your handling code here:
@@ -173,12 +209,12 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Admin_Pass;
     private javax.swing.JButton Button_Back_Admin;
     private javax.swing.JButton Button_Login_Admin;
     private javax.swing.JLabel Label_AdminLogin_Admin;
     private javax.swing.JLabel Label_Logo_Admin;
     private javax.swing.JLabel Label_Pass_Admin;
-    private javax.swing.JPasswordField PassField_Admin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

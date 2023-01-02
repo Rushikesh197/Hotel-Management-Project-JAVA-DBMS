@@ -7,6 +7,7 @@
  *
  * @author rushikeshgadewar
  */
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,11 +20,16 @@ public class HomeScreen extends javax.swing.JFrame {
 
     Connection conn;
     PreparedStatement ps;
+    
     /**
      * Creates new form HomeScreen
      */
     public HomeScreen() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -92,7 +98,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(Button_Admin_Login_HS)
                 .addGap(219, 219, 219))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
+                .addGap(231, 231, 231)
                 .addComponent(Label_Logo_HS, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(243, Short.MAX_VALUE))
         );
@@ -115,7 +121,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 30, 940, 430);
+        jScrollPane1.setBounds(20, 20, 970, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

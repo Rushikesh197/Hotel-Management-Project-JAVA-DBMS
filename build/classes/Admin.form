@@ -70,7 +70,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="Button_Login_Admin" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="PassField_Admin" min="-2" pref="249" max="-2" attributes="0"/>
+                                      <Component id="Admin_Pass" min="-2" pref="249" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -89,7 +89,7 @@
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="Label_Pass_Admin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="PassField_Admin" min="-2" max="-2" attributes="0"/>
+                      <Component id="Admin_Pass" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Button_Login_Admin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -136,9 +136,9 @@
                 <Property name="text" type="java.lang.String" value="ADMIN LOGIN"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="PassField_Admin">
+            <Component class="javax.swing.JPasswordField" name="Admin_Pass">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PassField_AdminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Admin_PassActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Button_Back_Admin">

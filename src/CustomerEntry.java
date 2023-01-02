@@ -7,12 +7,15 @@
  *
  * @author rushikeshgadewar(TEST)
  */
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class CustomerEntry extends javax.swing.JFrame {
      Connection conn;
@@ -22,6 +25,10 @@ public class CustomerEntry extends javax.swing.JFrame {
      */
     public CustomerEntry() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -38,9 +45,10 @@ public class CustomerEntry extends javax.swing.JFrame {
         Label_Logo_CE = new javax.swing.JLabel();
         TextField_Ph_Pri_CE = new javax.swing.JTextField();
         Label_Ph_Pri_CE = new javax.swing.JLabel();
-        Button_Login_CE = new javax.swing.JButton();
+        Button_Register_CE = new javax.swing.JButton();
         Label_CustEntry_CE = new javax.swing.JLabel();
         Button_Back_CE = new javax.swing.JButton();
+        Button_Login_CE = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -60,11 +68,11 @@ public class CustomerEntry extends javax.swing.JFrame {
         Label_Ph_Pri_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Ph_Pri_CE.setText("PHONE NO.(PRIMARY)");
 
-        Button_Login_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        Button_Login_CE.setText("LOGIN");
-        Button_Login_CE.addActionListener(new java.awt.event.ActionListener() {
+        Button_Register_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Register_CE.setText("REGISTER");
+        Button_Register_CE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_Login_CEActionPerformed(evt);
+                Button_Register_CEActionPerformed(evt);
             }
         });
 
@@ -76,6 +84,14 @@ public class CustomerEntry extends javax.swing.JFrame {
         Button_Back_CE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_Back_CEActionPerformed(evt);
+            }
+        });
+
+        Button_Login_CE.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Login_CE.setText("LOGIN");
+        Button_Login_CE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Login_CEActionPerformed(evt);
             }
         });
 
@@ -99,7 +115,9 @@ public class CustomerEntry extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(Button_Back_CE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(Button_Register_CE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
                                     .addComponent(Button_Login_CE))
                                 .addComponent(TextField_Ph_Pri_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(290, 290, 290)))))
@@ -118,6 +136,7 @@ public class CustomerEntry extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_Back_CE)
+                    .addComponent(Button_Register_CE)
                     .addComponent(Button_Login_CE))
                 .addContainerGap(210, Short.MAX_VALUE))
         );
@@ -134,14 +153,12 @@ public class CustomerEntry extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_Ph_Pri_CEActionPerformed
 
-    private void Button_Login_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_CEActionPerformed
-
-        FinalCustomer fc = new FinalCustomer();
-            fc.setVisible(true);
-            fc.setLocationRelativeTo(null);
+    private void Button_Register_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Register_CEActionPerformed
+        Registration r = new Registration();
+            r.setVisible(true);
+            r.setLocationRelativeTo(null);
             this.dispose();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Button_Login_CEActionPerformed
+    }//GEN-LAST:event_Button_Register_CEActionPerformed
 
     private void Button_Back_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_CEActionPerformed
         // TODO add your handling code here:
@@ -151,7 +168,41 @@ public class CustomerEntry extends javax.swing.JFrame {
             this.dispose();
     }//GEN-LAST:event_Button_Back_CEActionPerformed
 
-    /**
+    private void Button_Login_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_CEActionPerformed
+        String phno = this.TextField_Ph_Pri_CE.getText();
+        Long l1 = Long.parseLong(phno);
+        String phnodb=null; 
+        Long l2=null;
+        if (phno != null ){
+            try {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                ps = conn.prepareStatement("select Cust_Ph_Primary from Customer where Cust_Ph_Primary = ?");
+                ps.setString(1, phno);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    System.out.println(rs.getString("Cust_Ph_Primary"));
+                    phnodb = rs.getString("Cust_Ph_Primary");
+                     l2 = Long.parseLong(phnodb);
+                }
+                
+                if (phno.equals(phnodb)) {
+                     FinalCustomer fc = new FinalCustomer();
+            fc.setVisible(true);
+            fc.setLocationRelativeTo(null);
+            this.dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(this, "Customer Does Not Exist!! Please Check Once Again Or Register.");
+                }
+            }
+            catch(SQLException ex) {
+                System.err.println(ex);
+            }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login_CEActionPerformed
+
+   /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -192,6 +243,7 @@ public class CustomerEntry extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Back_CE;
     private javax.swing.JButton Button_Login_CE;
+    private javax.swing.JButton Button_Register_CE;
     private javax.swing.JLabel Label_CustEntry_CE;
     private javax.swing.JLabel Label_Logo_CE;
     private javax.swing.JLabel Label_Ph_Pri_CE;

@@ -7,9 +7,11 @@
  *
  * @author rushikeshgadewar
  */
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,11 +19,17 @@ import javax.swing.JOptionPane;
 
 public class EmployeeLogin extends javax.swing.JFrame {
 
+    Connection con;
+    PreparedStatement ps;
     /**
      * Creates new form EmployeeLogin
      */
     public EmployeeLogin() {
         initComponents();
+        this.setPreferredSize(new Dimension(1500, 1500));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -39,10 +47,10 @@ public class EmployeeLogin extends javax.swing.JFrame {
         Label_Logo_EL = new javax.swing.JLabel();
         Label_EmpID_EL = new javax.swing.JLabel();
         Button_Login_EL = new javax.swing.JButton();
-        TextField_EmpID_EL = new javax.swing.JTextField();
+        Emp_ID = new javax.swing.JTextField();
         Label_Pass_EL = new javax.swing.JLabel();
         Label_Emp_Login_EL = new javax.swing.JLabel();
-        TextField_Pass_EL = new javax.swing.JPasswordField();
+        Emp_Pass = new javax.swing.JPasswordField();
         Button_Back_EL = new javax.swing.JButton();
 
         jLabel6.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
@@ -61,16 +69,21 @@ public class EmployeeLogin extends javax.swing.JFrame {
 
         Button_Login_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Button_Login_EL.setText("LOGIN");
+        Button_Login_EL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_Login_ELMouseClicked(evt);
+            }
+        });
         Button_Login_EL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_Login_ELActionPerformed(evt);
             }
         });
 
-        TextField_EmpID_EL.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        TextField_EmpID_EL.addActionListener(new java.awt.event.ActionListener() {
+        Emp_ID.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Emp_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_EmpID_ELActionPerformed(evt);
+                Emp_IDActionPerformed(evt);
             }
         });
 
@@ -80,9 +93,9 @@ public class EmployeeLogin extends javax.swing.JFrame {
         Label_Emp_Login_EL.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_Emp_Login_EL.setText("EMPLOYEE LOGIN");
 
-        TextField_Pass_EL.addActionListener(new java.awt.event.ActionListener() {
+        Emp_Pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_Pass_ELActionPerformed(evt);
+                Emp_PassActionPerformed(evt);
             }
         });
 
@@ -107,7 +120,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(303, 303, 303)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextField_EmpID_EL, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Emp_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Label_EmpID_EL)
                             .addComponent(Label_Pass_EL)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -115,7 +128,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
                                     .addComponent(Button_Back_EL)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Button_Login_EL))
-                                .addComponent(TextField_Pass_EL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(Emp_Pass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(362, 362, 362)
                         .addComponent(Label_Emp_Login_EL)))
@@ -131,11 +144,11 @@ public class EmployeeLogin extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(Label_EmpID_EL)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_EmpID_EL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Emp_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(Label_Pass_EL)
                 .addGap(18, 18, 18)
-                .addComponent(TextField_Pass_EL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Emp_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_Back_EL)
@@ -152,20 +165,44 @@ public class EmployeeLogin extends javax.swing.JFrame {
 
     private void Button_Login_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Login_ELActionPerformed
 
-        MainScreen ms = new MainScreen();
+         String employeeid = this.Emp_ID.getText();
+        String password = this.Emp_Pass.getText();
+        String passFromDb = null;
+        
+        if (employeeid != null && password != null) {
+            try {
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                ps = con.prepareStatement("select Emp_Pass from Employee where Emp_ID = ?");
+                ps.setString(1, employeeid);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    System.out.println(rs.getString("Emp_Pass"));
+                    passFromDb = rs.getString("Emp_Pass");
+                }
+                if (password.equals(passFromDb)) {
+                     MainScreen ms = new MainScreen();
             ms.setVisible(true);
             ms.setLocationRelativeTo(null);
             this.dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(this, "Username or/and Password don't match!");
+                }
+            }
+            catch(SQLException ex) {
+                System.err.println(ex);
+            }
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_Login_ELActionPerformed
 
-    private void TextField_EmpID_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_EmpID_ELActionPerformed
+    private void Emp_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_IDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_EmpID_ELActionPerformed
+    }//GEN-LAST:event_Emp_IDActionPerformed
 
-    private void TextField_Pass_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Pass_ELActionPerformed
+    private void Emp_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_PassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_Pass_ELActionPerformed
+    }//GEN-LAST:event_Emp_PassActionPerformed
 
     private void Button_Back_ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Back_ELActionPerformed
         // TODO add your handling code here:
@@ -173,7 +210,13 @@ public class EmployeeLogin extends javax.swing.JFrame {
             hs.setVisible(true);
             hs.setLocationRelativeTo(null);
             this.dispose();
+      
     }//GEN-LAST:event_Button_Back_ELActionPerformed
+
+    private void Button_Login_ELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login_ELMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_Button_Login_ELMouseClicked
 
     /**
      * @param args the command line arguments
@@ -213,12 +256,12 @@ public class EmployeeLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Back_EL;
     private javax.swing.JButton Button_Login_EL;
+    private javax.swing.JTextField Emp_ID;
+    private javax.swing.JPasswordField Emp_Pass;
     private javax.swing.JLabel Label_EmpID_EL;
     private javax.swing.JLabel Label_Emp_Login_EL;
     private javax.swing.JLabel Label_Logo_EL;
     private javax.swing.JLabel Label_Pass_EL;
-    private javax.swing.JTextField TextField_EmpID_EL;
-    private javax.swing.JPasswordField TextField_Pass_EL;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
