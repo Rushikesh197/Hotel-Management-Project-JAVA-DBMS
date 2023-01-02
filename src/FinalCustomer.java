@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -16,10 +18,11 @@ import javax.swing.table.DefaultTableModel;
  * @author rushikeshgadewar
  */
 public class FinalCustomer extends javax.swing.JFrame {
-    String phno1;
+    String phno1,s1,s2,s3;
     DefaultTableModel model;
     Connection conn;
     PreparedStatement ps;
+    int temp;
     /**
      * Creates new form FinalCustomer
      */
@@ -57,6 +60,10 @@ public class FinalCustomer extends javax.swing.JFrame {
             System.out.println(e);
         }
         Table_CustDets_FC.setModel(model);
+        
+        
+        
+       
     }
 
     /**
@@ -80,7 +87,7 @@ public class FinalCustomer extends javax.swing.JFrame {
         Label_Room_Allot_FC = new javax.swing.JLabel();
         Label_ServiceDets_FC = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        Table_RoomDets_FC = new javax.swing.JTable();
+        addidetails = new javax.swing.JTable();
         Label_RoomDets_FC = new javax.swing.JLabel();
         Label_CustDets_FC = new javax.swing.JLabel();
         Label_CheckIN_FC = new javax.swing.JLabel();
@@ -95,7 +102,7 @@ public class FinalCustomer extends javax.swing.JFrame {
         TextField_Nos_Children_FC = new javax.swing.JTextField();
         Label_Service_Name_FC = new javax.swing.JLabel();
         Label_Service_Rate_FC = new javax.swing.JLabel();
-        Button_Enter_ServiceDets_FC = new javax.swing.JButton();
+        DEM = new javax.swing.JButton();
         TextField_Service_Name_FC = new javax.swing.JTextField();
         TextField_Service_Rate_FC = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -106,6 +113,19 @@ public class FinalCustomer extends javax.swing.JFrame {
         Button_LogOut_FC = new javax.swing.JButton();
         Label_ToPay_FC = new javax.swing.JLabel();
         Label_Via_FC = new javax.swing.JLabel();
+        Label_Room_No_FC = new javax.swing.JLabel();
+        TextField_Room_No_FC = new javax.swing.JTextField();
+        Button_Allot_Room_FC = new javax.swing.JButton();
+        Label_Service_Name_FC1 = new javax.swing.JLabel();
+        Label_Service_Name_FC2 = new javax.swing.JLabel();
+        TextField_Service_Name_FC1 = new javax.swing.JTextField();
+        TextField_Service_Name_FC2 = new javax.swing.JTextField();
+        Label_RoomDets_FC1 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Table_RoomDets_FC1 = new javax.swing.JTable();
+        Button_Enter_ServiceDets_FC1 = new javax.swing.JButton();
+        DEM2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,19 +175,19 @@ public class FinalCustomer extends javax.swing.JFrame {
         Label_ServiceDets_FC.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_ServiceDets_FC.setText("SERVICES DETAILS");
 
-        Table_RoomDets_FC.setBorder(new javax.swing.border.MatteBorder(null));
-        Table_RoomDets_FC.setModel(new javax.swing.table.DefaultTableModel(
+        addidetails.setBorder(new javax.swing.border.MatteBorder(null));
+        addidetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ROOM NO.", "TYPE", "STATUS", "RATE"
+                "Room_Type", "Room_Adults", "Room_Children", "Room_CheckOUT", "Room_CheckIN", "Room_Cust_ID", "Room_Cust_Fname", "Room_Cust_Ph_Primary", "Room_No"
             }
         ));
-        jScrollPane4.setViewportView(Table_RoomDets_FC);
+        jScrollPane4.setViewportView(addidetails);
 
         Label_RoomDets_FC.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_RoomDets_FC.setText("ROOM DETAILS");
@@ -189,7 +209,6 @@ public class FinalCustomer extends javax.swing.JFrame {
 
         ComboBox_Room_Typr_FC.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         ComboBox_Room_Typr_FC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "REGULAR", "DELUXE", "SUITE" }));
-        ComboBox_Room_Typr_FC.setSelectedItem(ComboBox_Room_Typr_FC);
 
         TextField_CheckIN_FC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,11 +225,11 @@ public class FinalCustomer extends javax.swing.JFrame {
         Label_Service_Rate_FC.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
         Label_Service_Rate_FC.setText("SERVICE RATE");
 
-        Button_Enter_ServiceDets_FC.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
-        Button_Enter_ServiceDets_FC.setText("ENTER");
-        Button_Enter_ServiceDets_FC.addActionListener(new java.awt.event.ActionListener() {
+        DEM.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        DEM.setText("GO");
+        DEM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_Enter_ServiceDets_FCActionPerformed(evt);
+                DEMActionPerformed(evt);
             }
         });
 
@@ -260,105 +279,195 @@ public class FinalCustomer extends javax.swing.JFrame {
         Label_Via_FC.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
         Label_Via_FC.setText("VIA");
 
+        Label_Room_No_FC.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_Room_No_FC.setText("ROOM NO.");
+
+        Button_Allot_Room_FC.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Allot_Room_FC.setText("ALLOT");
+        Button_Allot_Room_FC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Allot_Room_FCActionPerformed(evt);
+            }
+        });
+
+        Label_Service_Name_FC1.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_Service_Name_FC1.setText("SERVICE TIME");
+
+        Label_Service_Name_FC2.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Label_Service_Name_FC2.setText("SERVICE DATE");
+
+        Label_RoomDets_FC1.setFont(new java.awt.Font("STIX Two Text", 1, 18)); // NOI18N
+        Label_RoomDets_FC1.setText("ADDITIONAL DETAILS");
+
+        Table_RoomDets_FC1.setBorder(new javax.swing.border.MatteBorder(null));
+        Table_RoomDets_FC1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ROOM NO.", "TYPE", "STATUS", "RATE"
+            }
+        ));
+        jScrollPane7.setViewportView(Table_RoomDets_FC1);
+
+        Button_Enter_ServiceDets_FC1.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        Button_Enter_ServiceDets_FC1.setText("ENTER");
+        Button_Enter_ServiceDets_FC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Enter_ServiceDets_FC1ActionPerformed(evt);
+            }
+        });
+
+        DEM2.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        DEM2.setText("GO");
+        DEM2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DEM2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("STIX Two Text", 1, 14)); // NOI18N
+        jButton1.setText("GO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Label_ToPay_FC)
+                    .addComponent(TextField_ToPay_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(Label_Via_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(ComboBox_Via_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(Label_Nos_Adults_FC)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Label_CheckIN_FC)
-                                    .addComponent(Label_Room_Type_FC)
-                                    .addComponent(Label_Nos_Adults_FC))
-                                .addGap(56, 56, 56)
+                                    .addComponent(Label_Room_Type_FC))
+                                .addGap(61, 61, 61)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TextField_CheckIN_FC)
+                                    .addComponent(ComboBox_Room_Typr_FC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TextField_Nos_Adults_FC))
+                                .addGap(126, 126, 126)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(TextField_CheckIN_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(Label_Check_Out_FC)
-                                        .addGap(69, 69, 69)
-                                        .addComponent(TextField_Check_Out_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(TextField_Nos_Adults_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(Label_Nos_Children_FC)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(TextField_Nos_Children_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ComboBox_Room_Typr_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Label_Room_No_FC)
+                                    .addComponent(Label_Check_Out_FC)
+                                    .addComponent(Label_Nos_Children_FC))
+                                .addGap(39, 39, 39)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Label_Service_Name_FC)
-                                    .addComponent(Label_Service_Rate_FC))
-                                .addGap(130, 130, 130)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TextField_Service_Name_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextField_Service_Rate_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(121, 121, 121)))
-                        .addGap(285, 285, 285))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Label_Logo_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(349, 349, 349))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Label_CustDets_FC)
-                        .addGap(514, 514, 514))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1032, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(TextField_ToPay_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Label_ToPay_FC))
-                                    .addGap(103, 103, 103)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Label_Via_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(ComboBox_Via_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Button_LogOut_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(85, 85, 85))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Label_RoomDets_FC)
-                        .addGap(530, 530, 530))))
+                                    .addComponent(TextField_Nos_Children_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextField_Room_No_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextField_Check_Out_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(366, 366, 366))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(603, 603, 603)
-                .addComponent(Button_Enter_ServiceDets_FC)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Label_Room_Allot_FC)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1074, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Label_ServiceDets_FC)
-                                .addGap(1, 1, 1)))
-                        .addGap(516, 516, 516))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(332, 332, 332)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Label_Service_Name_FC)
+                                        .addGap(23, 23, 23)
+                                        .addComponent(TextField_Service_Name_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Label_Service_Rate_FC)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(TextField_Service_Rate_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(114, 114, 114)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Label_Service_Name_FC1)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(TextField_Service_Name_FC1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Label_Service_Name_FC2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(TextField_Service_Name_FC2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane7)
+                                    .addComponent(jScrollPane6))))
+                        .addComponent(Button_LogOut_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(566, 566, 566)
+                        .addComponent(Label_ServiceDets_FC))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(581, 581, 581)
                         .addComponent(Label_Services_Used_FC)
-                        .addGap(534, 534, 534))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(552, 552, 552)
+                        .addComponent(Label_RoomDets_FC1)
+                        .addGap(27, 27, 27)
+                        .addComponent(DEM2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(562, 562, 562)
+                        .addComponent(Label_Room_Allot_FC))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(573, 573, 573)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Label_RoomDets_FC)
+                                .addGap(18, 18, 18)
+                                .addComponent(DEM))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(Button_Allot_Room_FC))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(550, 550, 550)
+                        .addComponent(Label_CustDets_FC))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addComponent(Label_Logo_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(623, 623, 623)
+                    .addComponent(Button_Enter_ServiceDets_FC1)
+                    .addContainerGap(678, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(14, 14, 14)
                 .addComponent(Label_Logo_FC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Label_CustDets_FC)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(Label_CustDets_FC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(Label_Room_Allot_FC)
-                .addGap(55, 55, 55)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Room_Type_FC)
-                    .addComponent(ComboBox_Room_Typr_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox_Room_Typr_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Label_Room_No_FC)
+                    .addComponent(TextField_Room_No_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Nos_Children_FC)
@@ -371,58 +480,98 @@ public class FinalCustomer extends javax.swing.JFrame {
                     .addComponent(TextField_CheckIN_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Label_CheckIN_FC)
                     .addComponent(TextField_Check_Out_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(Label_RoomDets_FC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(Label_ServiceDets_FC)
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TextField_Service_Name_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label_Service_Name_FC))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(Button_Allot_Room_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label_Service_Rate_FC)
-                    .addComponent(TextField_Service_Rate_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Label_RoomDets_FC)
+                    .addComponent(DEM, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Label_RoomDets_FC1)
+                    .addComponent(DEM2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(Button_Enter_ServiceDets_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(Label_Services_Used_FC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(Label_ServiceDets_FC)
+                .addGap(66, 66, 66)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Label_Service_Name_FC)
+                    .addComponent(TextField_Service_Name_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Label_Service_Name_FC2)
+                    .addComponent(TextField_Service_Name_FC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextField_Service_Rate_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Label_Service_Rate_FC)
+                    .addComponent(Label_Service_Name_FC1)
+                    .addComponent(TextField_Service_Name_FC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Label_Services_Used_FC)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label_ToPay_FC)
-                            .addComponent(Label_Via_FC))
-                        .addGap(33, 33, 33)
-                        .addComponent(TextField_ToPay_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Button_LogOut_FC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_Via_FC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(167, 167, 167))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Label_ToPay_FC)
+                                    .addComponent(Label_Via_FC))
+                                .addGap(56, 56, 56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(TextField_ToPay_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ComboBox_Via_FC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(Button_LogOut_FC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(155, 155, 155))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(1212, Short.MAX_VALUE)
+                    .addComponent(Button_Enter_ServiceDets_FC1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(695, 695, 695)))
         );
 
         jScrollPane2.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 30, 1250, 1510);
+        jScrollPane2.setBounds(30, 30, 1260, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Button_Enter_ServiceDets_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Enter_ServiceDets_FCActionPerformed
+    private void DEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Button_Enter_ServiceDets_FCActionPerformed
+        model = new DefaultTableModel();
+        model.addColumn("ROOM NO.");
+        model.addColumn("TYPE");
+        model.addColumn("STATUS");
+        model.addColumn("RATE");
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Rooms where Room_no=?");
+            ps.setInt(1, temp);
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Room_No"), rs.getString("Room_Type"), rs.getString("Room_Status"),rs.getString("Room_Rate")});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        Table_RoomDets_FC1.setModel(model);
+        
+        
+    }//GEN-LAST:event_DEMActionPerformed
 
     private void TextField_Service_Rate_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_Service_Rate_FCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_Service_Rate_FCActionPerformed
-
-    private void TextField_ToPay_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_ToPay_FCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_ToPay_FCActionPerformed
 
     private void Button_LogOut_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_LogOut_FCActionPerformed
         // TODO add your handling code here:
@@ -435,6 +584,154 @@ public class FinalCustomer extends javax.swing.JFrame {
     private void TextField_CheckIN_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_CheckIN_FCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_CheckIN_FCActionPerformed
+
+    private void Button_Allot_Room_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Allot_Room_FCActionPerformed
+        // TODO add your handling code here:
+       try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Customer where Cust_Ph_Primary = ?");
+            ps.setString(1, phno1);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next())
+            {
+                 s1=rs.getString("Cust_ID");
+                 s2=rs.getString("Cust_Fname");
+                 s3=rs.getString("Cust_Ph_Primary");
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        
+        String roomno;
+        roomno = this.TextField_Room_No_FC.getText();
+        temp=Integer.parseInt(roomno);
+        String adults;
+        adults = this.TextField_Nos_Adults_FC.getText();
+        String children;
+        children = this.TextField_Nos_Children_FC.getText();
+        String checkin;
+        checkin = this.TextField_CheckIN_FC.getText();
+        String checkout;
+        checkout = this.TextField_Check_Out_FC.getText();
+        String roomtype = ComboBox_Room_Typr_FC.getSelectedItem().toString();
+        int op=Integer.parseInt(s1);
+        try {
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                    ps = conn.prepareStatement("insert into RoomAllotment(Room_Type,Room_Adults,Room_Children,Room_CheckOUT,Room_CheckIN,Room_Cust_ID,Room_Cust_Fname,Room_Cust_Ph_Primary,Room_No) values(?,?,?,?,?,?,?,?,?)");
+                    ps.setString(1, roomtype);
+                    ps.setString(2, adults);
+                    ps.setString(3, children);
+                    ps.setString(4, checkin);
+                    ps.setString(5, checkout);
+                    ps.setInt(6, op);
+                    ps.setString(7, s2);
+                    ps.setString(8, s3);
+                    ps.setInt(9, temp);
+                    
+
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Record Added Successfully");
+                    FinalCustomer fe = new FinalCustomer();
+                    fe.setVisible(true);
+                    fe.setLocationRelativeTo(null);
+                    this.dispose();
+                }   
+                catch (SQLException ex){
+            JOptionPane.showMessageDialog(this, "Fill All Details");
+            
+        }
+    }//GEN-LAST:event_Button_Allot_Room_FCActionPerformed
+
+    private void TextField_ToPay_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_ToPay_FCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextField_ToPay_FCActionPerformed
+
+    private void Button_Enter_ServiceDets_FC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Enter_ServiceDets_FC1ActionPerformed
+        // TODO add your handling code here:
+        String name;
+        name = this.TextField_Service_Name_FC.getText();
+        String date;
+        date = this.TextField_Service_Name_FC2.getText();
+        String rate;
+        rate = this.TextField_Service_Rate_FC.getText();
+        String time;
+        time = this.TextField_Service_Name_FC1.getText();
+        
+       
+        try {
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+                    ps = conn.prepareStatement("insert into Services(Service_Name,Service_Rate,Service_Date,Service_Time) values(?,?,?,?)");
+                    ps.setString(1, name);
+                    ps.setString(2, date);
+                    ps.setString(3, rate);
+                    ps.setString(4, time);
+                    
+                    
+
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Record Added");
+                    FinalCustomer fe = new FinalCustomer();
+                    fe.setVisible(true);
+                    fe.setLocationRelativeTo(null);
+                    this.dispose();
+                }   
+                catch (SQLException ex){
+            JOptionPane.showMessageDialog(this, "Fill all details");
+            
+        }
+    }//GEN-LAST:event_Button_Enter_ServiceDets_FC1ActionPerformed
+
+    private void DEM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEM2ActionPerformed
+        // TODO add your handling code here:
+         model = new DefaultTableModel();
+        model.addColumn("Room_Type");
+        model.addColumn("Room_Adults");
+        model.addColumn("Room_Children");
+        model.addColumn("Room_CheckOUT");
+        model.addColumn("Room_CheckIN");
+        model.addColumn("Room_Cust_ID");
+        model.addColumn("Room_Cust_Fname");
+        model.addColumn("Room_Cust_Ph_Primary");
+        model.addColumn("Room_No");
+        
+        
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from RoomAllotment where Room_Cust_Ph_Primary=?");
+            ps.setString(1, phno1);
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Room_Type"),rs.getString("Room_Adults"),rs.getString("Room_Children"),rs.getString("Room_CheckOUT"),rs.getString("Room_CheckIN"),rs.getString("Room_Cust_ID"),rs.getString("Room_Cust_Fname"),rs.getString("Room_Cust_Ph_Primary"),rs.getString("Room_No"),});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        addidetails.setModel(model);
+    }//GEN-LAST:event_DEM2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("NAME");
+        model.addColumn("RATE");
+        model.addColumn("DATE");
+        model.addColumn("TIME");
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel Management?user=root&password=Rushi12345$");
+            ps = conn.prepareStatement("select * from Services");
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    model.addRow(new Object[]{rs.getString("Service_ID"), rs.getString("Service_Name"),rs.getString("Service_Rate"),rs.getString("Service_Date"),rs.getString("Service_Time")});
+                }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        Table_Services_Used_FC.setModel(model);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,10 +772,13 @@ public class FinalCustomer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button_Enter_ServiceDets_FC;
+    private javax.swing.JButton Button_Allot_Room_FC;
+    private javax.swing.JButton Button_Enter_ServiceDets_FC1;
     private javax.swing.JButton Button_LogOut_FC;
     private javax.swing.JComboBox<String> ComboBox_Room_Typr_FC;
     private javax.swing.JComboBox<String> ComboBox_Via_FC;
+    private javax.swing.JButton DEM;
+    private javax.swing.JButton DEM2;
     private javax.swing.JLabel Label_CheckIN_FC;
     private javax.swing.JLabel Label_Check_Out_FC;
     private javax.swing.JLabel Label_CustDets_FC;
@@ -486,24 +786,33 @@ public class FinalCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel Label_Nos_Adults_FC;
     private javax.swing.JLabel Label_Nos_Children_FC;
     private javax.swing.JLabel Label_RoomDets_FC;
+    private javax.swing.JLabel Label_RoomDets_FC1;
     private javax.swing.JLabel Label_Room_Allot_FC;
+    private javax.swing.JLabel Label_Room_No_FC;
     private javax.swing.JLabel Label_Room_Type_FC;
     private javax.swing.JLabel Label_ServiceDets_FC;
     private javax.swing.JLabel Label_Service_Name_FC;
+    private javax.swing.JLabel Label_Service_Name_FC1;
+    private javax.swing.JLabel Label_Service_Name_FC2;
     private javax.swing.JLabel Label_Service_Rate_FC;
     private javax.swing.JLabel Label_Services_Used_FC;
     private javax.swing.JLabel Label_ToPay_FC;
     private javax.swing.JLabel Label_Via_FC;
     private javax.swing.JTable Table_CustDets_FC;
-    private javax.swing.JTable Table_RoomDets_FC;
+    private javax.swing.JTable Table_RoomDets_FC1;
     private javax.swing.JTable Table_Services_Used_FC;
     private javax.swing.JTextField TextField_CheckIN_FC;
     private javax.swing.JTextField TextField_Check_Out_FC;
     private javax.swing.JTextField TextField_Nos_Adults_FC;
     private javax.swing.JTextField TextField_Nos_Children_FC;
+    private javax.swing.JTextField TextField_Room_No_FC;
     private javax.swing.JTextField TextField_Service_Name_FC;
+    private javax.swing.JTextField TextField_Service_Name_FC1;
+    private javax.swing.JTextField TextField_Service_Name_FC2;
     private javax.swing.JTextField TextField_Service_Rate_FC;
     private javax.swing.JTextField TextField_ToPay_FC;
+    private javax.swing.JTable addidetails;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JPanel jPanel1;
@@ -512,6 +821,7 @@ public class FinalCustomer extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTable jTable5;
     // End of variables declaration//GEN-END:variables
 }
