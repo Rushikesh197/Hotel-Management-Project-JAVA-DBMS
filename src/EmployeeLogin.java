@@ -57,9 +57,11 @@ public class EmployeeLogin extends javax.swing.JFrame {
         jLabel6.setText("NEW CUSTOMER REGISTRATION");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(java.awt.Color.gray);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
         Label_Logo_EL.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_EL.setText(" GRAND HYATT");
@@ -111,35 +113,34 @@ public class EmployeeLogin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 205, Short.MAX_VALUE)
-                .addComponent(Label_Logo_EL, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
+                        .addGap(206, 206, 206)
+                        .addComponent(Label_Logo_EL, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(379, 379, 379)
+                        .addComponent(Label_Emp_Login_EL))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(315, 315, 315)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Emp_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Label_EmpID_EL)
                             .addComponent(Label_Pass_EL)
+                            .addComponent(Label_EmpID_EL)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(Button_Back_EL)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Button_Login_EL))
-                                .addComponent(Emp_Pass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(362, 362, 362)
-                        .addComponent(Label_Emp_Login_EL)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(Emp_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Emp_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(28, 28, 28)
                 .addComponent(Label_Logo_EL)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Label_Emp_Login_EL)
                 .addGap(48, 48, 48)
                 .addComponent(Label_EmpID_EL)
@@ -158,7 +159,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 30, 900, 540);
+        jScrollPane1.setBounds(230, 120, 970, 560);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

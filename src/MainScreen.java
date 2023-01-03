@@ -53,7 +53,8 @@ public class MainScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(java.awt.Color.gray);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
         Label_Logo_MS.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_MS.setText(" GRAND HYATT");
@@ -90,44 +91,43 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(197, 197, 197)
-                                .addComponent(Label_MainScreen_MS))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(Button_RoomDets_MS)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Button_CustEntry_MS))
-                                .addComponent(Label_Logo_MS, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Button_Back_MS)
-                        .addGap(291, 291, 291))))
+                                .addComponent(Button_RoomDets_MS)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Button_CustEntry_MS))
+                            .addComponent(Label_Logo_MS, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(455, 455, 455)
+                        .addComponent(Button_Back_MS))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(426, 426, 426)
+                        .addComponent(Label_MainScreen_MS)))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(44, 44, 44)
                 .addComponent(Label_Logo_MS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Label_MainScreen_MS)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_RoomDets_MS)
                     .addComponent(Button_CustEntry_MS))
-                .addGap(37, 37, 37)
+                .addGap(52, 52, 52)
                 .addComponent(Button_Back_MS)
-                .addGap(41, 41, 41))
+                .addContainerGap(632, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 20, 660, 360);
+        jScrollPane1.setBounds(240, 100, 970, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -8,6 +8,7 @@
  * @author rushikeshgadewar
  */
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,6 +31,7 @@ public class HomeScreen extends javax.swing.JFrame {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
     }
 
     /**
@@ -54,7 +56,8 @@ public class HomeScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(java.awt.Color.gray);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
         Label_Logo_HS.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_HS.setText(" GRAND HYATT");
@@ -86,44 +89,44 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(Label_Emp_Login_HS)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Label_Admin_Login_HS)
-                .addGap(191, 191, 191))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
+                .addGap(231, 231, 231)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Label_Emp_Login_HS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Label_Admin_Login_HS))
+                    .addComponent(Label_Logo_HS, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(237, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(273, 273, 273)
                 .addComponent(Button_Emp_Login_HS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Button_Admin_Login_HS)
-                .addGap(219, 219, 219))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(Label_Logo_HS, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGap(265, 265, 265))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(Label_Logo_HS)
-                .addGap(112, 112, 112)
+                .addGap(133, 133, 133)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Emp_Login_HS)
                     .addComponent(Label_Admin_Login_HS))
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_Admin_Login_HS)
                     .addComponent(Button_Emp_Login_HS))
-                .addContainerGap(679, Short.MAX_VALUE))
+                .addContainerGap(636, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 20, 970, 430);
+        jScrollPane1.setBounds(230, 110, 960, 560);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_Admin_Login_HSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Admin_Login_HSActionPerformed

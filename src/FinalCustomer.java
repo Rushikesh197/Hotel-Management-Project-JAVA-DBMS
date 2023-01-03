@@ -148,7 +148,7 @@ public class FinalCustomer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(java.awt.Color.gray);
 
         Label_Logo_FC.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_FC.setText(" GRAND HYATT");
@@ -540,7 +540,7 @@ public class FinalCustomer extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 30, 1260, 580);
+        jScrollPane2.setBounds(90, 110, 1260, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

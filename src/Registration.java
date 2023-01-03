@@ -100,7 +100,8 @@ public class Registration extends javax.swing.JFrame {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(java.awt.Color.gray);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1300));
 
         Cust_Fname.setFont(new java.awt.Font("STIX Two Text", 0, 14)); // NOI18N
         Cust_Fname.addActionListener(new java.awt.event.ActionListener() {
@@ -312,11 +313,11 @@ public class Registration extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Button_Register_NCR))
                                 .addComponent(Cust_DOB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(Label_Marr_Status_NCR)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(YesRadio)
-                                    .addGap(31, 31, 31)
+                                    .addGap(30, 30, 30)
                                     .addComponent(NoRadio))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(Label_Gender_NCR)
@@ -325,9 +326,9 @@ public class Registration extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(FemaleRadio)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
+                        .addGap(227, 227, 227)
                         .addComponent(Label_Logo_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,12 +378,12 @@ public class Registration extends javax.swing.JFrame {
                     .addComponent(Label_Gender_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MaleRadio)
                     .addComponent(FemaleRadio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_Marr_Status_NCR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(YesRadio)
                     .addComponent(NoRadio))
-                .addGap(51, 51, 51)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_Back_NCR)
                     .addComponent(Button_Register_NCR))
@@ -392,7 +393,7 @@ public class Registration extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 20, 960, 450);
+        jScrollPane1.setBounds(240, 130, 970, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -53,7 +53,8 @@ public class CustomerEntry extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(java.awt.Color.gray);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
         Label_Logo_CE.setFont(new java.awt.Font("Zapfino", 1, 36)); // NOI18N
         Label_Logo_CE.setText(" GRAND HYATT");
@@ -99,52 +100,51 @@ public class CustomerEntry extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 187, Short.MAX_VALUE)
-                .addComponent(Label_Logo_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(343, 343, 343)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Label_Ph_Pri_CE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(Label_CustEntry_CE)
-                            .addGap(358, 358, 358))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(Button_Back_CE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Button_Register_CE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Button_Login_CE))
-                                .addComponent(TextField_Ph_Pri_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(290, 290, 290)))))
+                    .addComponent(TextField_Ph_Pri_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Button_Back_CE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Button_Register_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Button_Login_CE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(Label_Logo_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(394, 394, 394)
+                        .addComponent(Label_CustEntry_CE)))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addComponent(Label_Logo_CE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(Label_CustEntry_CE)
-                .addGap(41, 41, 41)
+                .addGap(64, 64, 64)
                 .addComponent(Label_Ph_Pri_CE)
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addComponent(TextField_Ph_Pri_CE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_Back_CE)
                     .addComponent(Button_Register_CE)
                     .addComponent(Button_Login_CE))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(599, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 20, 890, 520);
+        jScrollPane1.setBounds(250, 130, 960, 550);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
